@@ -1,2 +1,91 @@
-py/pzog/CHANGES
+~/dev/py/pzog/CHANGES
+
+v0.3.0
+    2016-02-19
+        * convert to Python3
+v0.2.8
+    2012-12-17
+        * AbstractNode.__init__ changed to calculate nodeID as      SLOC  671
+            binary value (was hex)
+v0.2.7
+    2012-12-16
+        * corrected error in calculating nodeID
+v0.2.6
+    2012-11-20
+        * removed debug print in pzog/xlattice/node.py
+v0.2.5
+    2012-11-10
+        * rough ringDataGen creates unique RSA key for all 5 nodes  SLOC  663
+        * added ringData.xlgo                                       SLOC  672
+v0.2.4
+    2012-11-09
+        * tests succeed (RSA-sign/verify bugs removed)              SLOC  632
+v0.2.3
+    2012-11-05
+        * pzog.xlattice.SHA3_256 wraps pyshar-0.2.1, adding a 
+            private OID so that it can be used in node.sign()
+            and verify(); added testSHA3_256                        SLOC  627
+    2012-11-02
+        * replaced python-sha3 with pysha3-0.2.1                    SLOC  615
+    2012-11-01
+        * skeletal ringDataGen
+        * reworked pzog/xlattice/node.py to use either SHA1 or 3,
+            modified testNode.py accordingly                        SLOC  599
+    2012-10-31
+        * determines thisHost (host part of fqdn) by reading 
+            /etc/hostname
+v0.2.2
+    2012-10-30
+        * just packaging up what's there; sloc per pySloc           SLOC  433
+v0.2.1
+    2012-07-28                                                      SLOC  497
+        * cleanup prior to moving dev to PA
+v0.2.0
+    2012-07-07
+        * Installed Ubuntu pycrypto package on LA.  This didn't have 
+            Crypto.Signaure so I installed from source, pycrypto-2.6.tar.gz
+            from dlitz.net
+            - googling finds articles that claim that pycrypto is largely
+                implemented in python and so somewhat slow
+            - but note that pycrypto includes a good chunk of libtom
+            - also, PKCS1_v1.5 is to be found in Signature
+
+v0.1.2
+    2012-06-14
+        * logging works, at least to the access log
+
+v0.1
+    2012-06-04
+        * this pzog (0.1) is single-threaded except that it makes use
+            of serverutil for logging
+        * all acceptable messages are CR-LF terminated
+            - these two bytes are removed before writing to the log
+        * this pzog has no more than one connection open at any time
+        * 'shutdown\r\n' shuts down the server as well as closing the
+            connection
+            - shutdown must be called in a finally block and it must
+                close the log files
+
+    2012-06-03
+        * create logs/ if not present
+        * set up logging to access.log
+            - and error.log                                          XXX FAILED
+        * daemon listens on 55551 = PZOG_PORT
+        * accepts connections from anywhere
+        * accepts messages of length <= PZOG_MAX_MSG = 512 bytes
+            - this includes terminating CR-LF but does not allow for any
+                terminating null byte
+        * acceptable messages are logged to logs/access.log with a
+            timestamp
+            - 'quit' + CRLF is an acceptable message and closes the
+                connection
+            - the connection remains open after receiving any other
+                acceptable message
+            - 'keepalive' + CRLF is an acceptable message
+                * and may cause some special action
+        * bad messages are logged to logs/error.log with a timestamp
+            and ipAddr:port of sender
+            - bad messages cause the connection to be closed            * ???
+        * a keyboard interrupt (ctrl-C) causes pzogd to shut down
+            in an orderly fashion
 

@@ -1,0 +1,4 @@
+./testCrypto.py
+./testNode.py
+./testSHA3_256.py
+./testU.py
