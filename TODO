@@ -1,2 +1,106 @@
-py/pzog/TODO
+~/dev/py/pzog/TODO
+
+2012-12-17
+   * modify testNode.py to verify type of returned values (test did 
+        not detect AbstractNode.__init__ calculating nodeID as hex
+
+2012-11-19
+    * FIX: when used in fieldz/testRingData, pzog/xlattice/node.py 
+        does not always produce unique nodeIDs
+        - do this by using key.n instead of n in any hashing, then
+            do a ./setup.py install and step version decimal
+
+2012-11-10
+    * ringDataGen stores data using org.xlattice.pzog.ringData
+    * loadLoader retrieves data written in that format
+
+2012-11-09
+    * FIX: ringDataGen generates the same nodeID for all nodes      * FIXED
+
+2012-10-31
+    * ringDataGen: a utility for generating data structures re ring * DONE
+        hosts; this informtation goes into the tarball
+        - RSA private and public keys
+        - nodeIDs
+        - IP addresses
+        - fully qualified domain names
+        - anything else needed to populate Node and Peer classes
+    * call the serialized data pzog.ring.data
+    * all ring members get a copy of this data, but private key in 
+        particular is only loaded for the specific node
+        - so we have a method ringLoader() which reads /etc/hostname
+            and returns an appropriate collection of objects, perhaps
+            (thisNode, ndx, peerList)
+        - ringLoader() does an integrity check on the ringData`
+    * need a testRingData.py; this uses the same ringLoader()
+
+    * pzogd will be run by and the ringData will belong to the upax 
+        login
+    * pzog builds a ring on {la,t,lg,sm,g}; psprog injects packets
+        into that ring
+
+    * pzogd determines its position in the ring by checking its name
+        against [LosAltos, test, losgatos, supermicro, guadalupe]
+        - if verbose, display hostname:index
+    * pzog uses fieldz 0.4.4 or better
+    * protocol org.xlattice.zog has four message types: keepAlive, ack,
+        data, ok (possibly as described in README)
+    * server listens on 55552 using tcpip; implementation should allow
+        multiple clients to connect simultaneously
+        - py/cnx package provides tcpip support
+        - both client and server load zogProto.py, parse, store results 
+            using fieldz/reg
+   
+    WORKING ON THESE:
+
+    * Objective of having Python, C, and Java versions of zog and sprog
+        widened to include C++ (pzog, czog, jzog, cppzog respectively).
+    
+    * each pzogd has list of peers; by default if there is no connection
+        to a peer it attempts to open one, retrying every minute or so
+    * on opening a connection a peer sends HELLO, expects an OK back,
+        and then sends KEEPALIVEs every 300s, expecting an ACK back.
+    * on opening a connection a client sends a message which looks like
+        MSG text\n
+      where 'text' is some sequence of printing characters other than 
+      newline (\n).  The server responds OK and forwards the message 
+      to its +1 and +2 peers with a +2 wrapping (a '2' prefix)
+    * if a client sends QUIT the server responds with an OK and closes
+        the connection
+    * on receiving a message from a peer with a '2' as its first character
+        a server forwards the message to its +2 peer, replacing the '2'
+        with a '0' and then logs the message
+    * on receiving a message from a peer with a '0' prefix, the server
+        simply logs the message
+
+    * psprog runs from the same peer list ([la,t,lg,sm,g])
+    * default behavior is to send messages at 'interval' second intervals
+
+2012-06-15
+    * first time pzogd was run detached, it segfaulted
+    * this happens fairly frequently; but if it starts, it seems to keep 
+        on running
+    
+    * psprog v0.1:
+        - single-threaded and blocking
+        - logs to logs/psprog.log by default
+        - options include
+            * -i/--interval = number of seconds between sends
+            * -m/--message, default is to randomize
+            * -n = number of messages to send, default = -1 = infinity
+            * -s/--serve    
+    * pzogd sees connection from sprog but does not report any messages
+        received if -v option set
+        - sprog always reports an empty reply
+    * psprog always crashes after sending one or two messages
+    * telnet to the same pzogd succeeds 
+
+2012-06-14
+    * access logs are not being flushed until the end of the run, whether
+        caused by keyboard interrupt or shutdown command
+    * HUPs must be handled like keyboard interrupts
+
+    * psprog is a complimentry client which talks to the same PZOG_PORT 
+        by default
+        - need not use serverutil's logging facilities
 

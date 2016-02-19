@@ -1,0 +1,15 @@
+# ~/dev/py/pzog/ringData.xlgo
+
+protocol org.xlattice.pzog.ringData
+
+# we accept either information on a single host
+message hostInfo:
+ hostName       lString     # @0: alphanumeric only
+ ipAddr         lString     # @1: dotted quad; could be fuInt32
+ nodeID         fBytes32    # @2: so binary
+ pubKey         lString     # @3: or could be lBytes
+ privateKey     lString     # @4: ditto
+
+# ... or info on one or more hosts
+message ringData:
+ hosts          hostInfo+
