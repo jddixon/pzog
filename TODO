@@ -1,5 +1,11 @@
 ~/dev/py/pzog/TODO
 
+2016-02-24
+    * ghpDoc/crypto.md needs further tidying up
+
+2016-02-19
+    * no -G commit, push ?
+
 2012-12-17
    * modify testNode.py to verify type of returned values (test did 
         not detect AbstractNode.__init__ calculating nodeID as hex
