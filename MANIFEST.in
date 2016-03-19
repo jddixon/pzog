@@ -2,7 +2,9 @@
 
 include netDistrib.conf
 include CHANGES README* TODO MANIFEST.in
+include auto8it countem installit tests.all
 include psprog pzogd test*.py
+include ringData.xlgo
 recursive-include pzog *.py
 
 global-exclude junk* .*swp 

@@ -18,10 +18,10 @@ else:
 
 
 class BaseSHA3Tests(unittest.TestCase):
-    new         = None
-    name        = None
+    new = None
+    name = None
     digest_size = None
-    vectors     = []
+    vectors = []
 
     def assertHashDigest(self, hexmsg, hexdigest):
         hexdigest = hexdigest.lower()
@@ -46,7 +46,7 @@ class BaseSHA3Tests(unittest.TestCase):
 
     def test_basics(self):
         sha3 = self.new()
-        
+
         # XXX FAILS: sha3 instance has no attribute 'name'
         # self.assertEqual(sha3.name, self.name)
 
@@ -60,19 +60,20 @@ class BaseSHA3Tests(unittest.TestCase):
         setattr(sha3, 'digest', 42)
         print("DEBUG: sha3.digest is %s" % str(sha3.digest))
         # END
-       
+
         # the first assertion tests much the same thing
         # self.assertRaises(AttributeError, setattr, sha3, "digest", 3)  # FAILS
-        # self.assertRaises(AttributeError, setattr, sha3, "name", "egg")# FAILS
+        # self.assertRaises(AttributeError, setattr, sha3, "name", "egg")#
+        # FAILS
 
         self.new(b"data")
         # self.new(string=b"data")  # XXX NO SUCH ATTRIBUTE as string
         # XXX FAILS:
         # self.assertRaises(TypeError, self.new, None)
-       
-        self.assertRaises(TypeError, sha3.update,   None)
-        self.assertRaises(TypeError, self.new,      asunicode("text"))
-        self.assertRaises(TypeError, sha3.update,   asunicode("text"))
+
+        self.assertRaises(TypeError, sha3.update, None)
+        self.assertRaises(TypeError, self.new, asunicode("text"))
+        self.assertRaises(TypeError, sha3.update, asunicode("text"))
 
     def test_vectors(self):
         for hexmsg, hexdigest in self.vectors:
@@ -80,8 +81,8 @@ class BaseSHA3Tests(unittest.TestCase):
 
 
 class SHA3_256Tests(BaseSHA3Tests):
-    new         = SHA3_256.SHA3_256Hash
-    name        = "sha3_256"
+    new = SHA3_256.SHA3_256Hash
+    name = "sha3_256"
     digest_size = 32
     vectors = [
         ("", "C5D2460186F7233C927E7DB2DCC703C0E500B653CA82273B7BFAD8045D85A470"),
@@ -89,15 +90,16 @@ class SHA3_256Tests(BaseSHA3Tests):
         ("41FB", "A8EACEDA4D47B3281A795AD9E1EA2122B407BAF9AABCB9E18B5717B7873537D2"),
         ("433C5303131624C0021D868A30825475E8D0BD3052A022180398F4CA4423B98214B6BEAAC21C8807A2C33F8C93BD42B092CC1B06CEDF3224D5ED1EC29784444F22E08A55AA58542B524B02CD3D5D5F6907AFE71C5D7462224A3F9D9E53E7E0846DCBB4CE",
          "CE87A5173BFFD92399221658F801D45C294D9006EE9F3F9D419C8D427748DC41"),
-        ]
+    ]
+
 
 def test_main():
     suite = unittest.TestSuite()
     classes = [ \
-            # SHA3_224Tests, 
-            SHA3_256Tests, 
-            # SHA3_384Tests, SHA3_512Tests]
-              ] 
+        # SHA3_224Tests,
+        SHA3_256Tests,
+        # SHA3_384Tests, SHA3_512Tests]
+    ]
     for cls in classes:
         suite.addTests(unittest.makeSuite(cls))
     return suite

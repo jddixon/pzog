@@ -1,0 +1,3 @@
+cd /home/jdd/dev/py/pzog
+
+autopep8 -air pzog pzogd setup.py test*.py ringDataGen psprog pzogd

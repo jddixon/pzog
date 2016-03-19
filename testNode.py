@@ -2,35 +2,40 @@
 
 # testNode.py
 import time
-import hashlib, os, sys
-if sys.version_info < (3,4):
+import hashlib
+import os
+import sys
+if sys.version_info < (3, 4):
     import sha3
 import unittest
-from Crypto.Hash            import SHA          as sha
-from Crypto.PublicKey       import RSA          as rsa
-from Crypto.Signature       import PKCS1_v1_5   as pkcs1
+from Crypto.Hash import SHA as sha
+from Crypto.PublicKey import RSA as rsa
+from Crypto.Signature import PKCS1_v1_5 as pkcs1
 
-from pzog.xlattice.node     import AbstractNode, Node, Peer
-from rnglib                 import SimpleRNG
+from pzog.xlattice.node import AbstractNode, Node, Peer
+from rnglib import SimpleRNG
 
 rng = SimpleRNG(time.time)
 
+
 class TestNode (unittest.TestCase):
-    """ 
+    """
     Tests an XLattice-style Node, including its sign() and verify()
     functions, using SHA1 and SHA3 (Keccak); for the latter I use a
     private OID.
     """
+
     def setUp(self):
         pass
+
     def tearDown(self):
         pass
 
     def checkNode(self, node, usingSHA1):
         assert node is not None
 
-        pub = node.pubKey 
-        id  = node.nodeID      
+        pub = node.pubKey
+        id = node.nodeID
         if usingSHA1:
             self.assertEquals(20, len(id))
             d = hashlib.sha1()
@@ -49,12 +54,12 @@ class TestNode (unittest.TestCase):
 
         # sign it and verify that it verifies
         sig = node.sign(msg)
-        self.assertTrue( node.verify(msg, sig) )
+        self.assertTrue(node.verify(msg, sig))
 
         # flip some bits and verify that it doesn't verify with the same sig
         msg[0] = msg[0] ^ 0x36
-        self.assertFalse( node.verify(msg, sig) )
-    
+        self.assertFalse(node.verify(msg, sig))
+
     # ---------------------------------------------------------------
     def doTestGenerateRSAKey(self, usingSHA1):
         n = Node(usingSHA1)          # no RSA key provided, so creates one
@@ -69,27 +74,28 @@ class TestNode (unittest.TestCase):
 
         # import an openSSL-generated 2048-bit key (this becomes a
         # string constant in this program)
-        with open('openssl2k.pem', 'r') as f:  pemKey = f.read()
+        with open('openssl2k.pem', 'r') as f:
+            pemKey = f.read()
         key = rsa.importKey(pemKey)
         assert key is not None
-        self.assertTrue(key.has_private()) 
+        self.assertTrue(key.has_private())
         n = Node(usingSHA1, key)
         self.checkNode(n, usingSHA1)
-       
+
         # The _RSAobj.publickey() returns a raw key.
-        self.assertEquals(key.publickey().exportKey(), 
+        self.assertEquals(key.publickey().exportKey(),
                           n.pubKey.exportKey())
 
         # -----------------------------------------------------------
-        # CLEAN THIS UP: node.key and node.pubKey should return 
+        # CLEAN THIS UP: node.key and node.pubKey should return
         # stringified objects, but node._privateKey and _pubKey should
         # be binary
         # -----------------------------------------------------------
-    
+
     def testWithOpenSSLKey(self):
         self.doTestWithOpenSSLKey(True)
 
-        # FAILS: 
+        # FAILS:
         self.doTestWithOpenSSLKey(False)
 
 if __name__ == '__main__':

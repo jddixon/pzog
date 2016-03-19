@@ -1,8 +1,10 @@
 # ~/dev/py/pzog/pzog/xlattice/crypto.py
 
-import hashlib,os
+import hashlib
+import os
 import Crypto.PublicKey.RSA as rsa
-import Crypto.Util.number   as rng
+import Crypto.Util.number as rng
+
 
 def createPrivateKey():
     # http://stackoverflow.com/questions/4232389/signing-and-verifying-i
@@ -14,10 +16,11 @@ def createPrivateKey():
     # END
     return key              # a binary key
 
+
 def getIDAndPubKeyForNode(node, rsaPrivateKey):
-    
+
     (nodeID, pubKey) = (None, None)
-    
+
     # generate the public key from the private key; will be in PEM format
     pubKey = rsaPrivateKey.publickey().exportKey()
 
@@ -37,4 +40,3 @@ def getIDAndPubKeyForNode(node, rsaPrivateKey):
 def getRSAPublicKeyFromPrivate(rsaPrivateKey):
     # XXX STUB XXX
     return None
-

@@ -2,9 +2,10 @@
 
 2016-02-24
     * ghpDoc/crypto.md needs further tidying up
+        - the last section is incomplete
 
 2016-02-19
-    * no -G commit, push ?
+    * no -G commit, push ?                                              * DONE
 
 2012-12-17
    * modify testNode.py to verify type of returned values (test did 
@@ -21,7 +22,7 @@
     * loadLoader retrieves data written in that format
 
 2012-11-09
-    * FIX: ringDataGen generates the same nodeID for all nodes      * FIXED
+    * FIX: ringDataGen generates the same nodeID for all nodes          * FIXED
 
 2012-10-31
     * ringDataGen: a utility for generating data structures re ring * DONE

@@ -1,5 +1,5 @@
 pySloc -v  $@       \
-    bash:countem    bash:installit test.all         \
+    bash:auto8it bash:countem    bash:installit test.all         \
     not#:MANIFEST.in                        \
     txt:openssl2k.pem txt:openssl4k.pem     \
     py:ringDataGen                          \

@@ -5,23 +5,23 @@
 import re
 from distutils.core import setup
 __version__ = re.search("__version__\s*=\s*'(.*)'",
-                    open('pzog/__init__.py').read()).group(1)
- 
+                        open('pzog/__init__.py').read()).group(1)
+
 # see http://docs.python.org/distutils/setupscript.html
 
-setup ( name         = 'pzog', 
-        version      = __version__,
-        author       = 'Jim Dixon',
-        author_email = 'jddixon@gmail.com',
-        #
-        # wherever we have a .py file that will be imported, we
-        # list it here, without the extension but SQuoted
-        py_modules   = [],
-        #
-        # a package has a subdir and an __init__.py
-        packages     = ['pzog','pzog/xlattice',], 
-        #
-        # following could be in scripts/ subdir; SQuote
-        scripts      = ['psprog', 'pzogd', 'ringDataGen'],
-        # MISSING url
-        )
+setup(name='pzog',
+      version=__version__,
+      author='Jim Dixon',
+      author_email='jddixon@gmail.com',
+      #
+      # wherever we have a .py file that will be imported, we
+      # list it here, without the extension but SQuoted
+      py_modules=[],
+      #
+      # a package has a subdir and an __init__.py
+      packages=['pzog', 'pzog/xlattice', ],
+      #
+      # following could be in scripts/ subdir; SQuote
+      scripts=['psprog', 'pzogd', 'ringDataGen'],
+      # MISSING url
+      )

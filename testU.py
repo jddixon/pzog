@@ -2,17 +2,22 @@
 
 # testU.py
 import time
-import hashlib, os, sys
+import hashlib
+import os
+import sys
 import unittest
 
+
 class TestU (unittest.TestCase):
-    """ 
+    """
     Tests an XLattice-style Node, including its sign() and verify()
     functions, using SHA1 and SHA3 (Keccak); for the latter I use a
     private OID.
     """
+
     def setUp(self):
         pass
+
     def tearDown(self):
         pass
 

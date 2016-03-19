@@ -49,7 +49,7 @@ Bjorn Edstrom that I got from github.com.
 [The Python bug report](http://bugs.python.org/issue16166)
 follows on from this.
 
-A Pycrypt Problem?
+## A Pycrypt Problem?
 
 PKCS1-V1_5 is defined by RFC 3447.  The encryption operation is described
 in section 7.2.1, which makes no mention of the OID.  The inputs are the
@@ -141,7 +141,7 @@ not to conflict with the Python 3.4 version of hashlib.
 	# get eg 256-bit instance
 	d = hashlib.new("sha3_256")     # or d = hashlib.sha3_256()
 
-Integrating pysah3-0.2.1 into Pycrypto
+## Integrating pysah3-0.2.1 into Pycrypto
 
 Using a private OID as described above and pycrypto-2.6/lib/Crypto/Hash/SHA.py
 as a model:
