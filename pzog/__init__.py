@@ -1,7 +1,7 @@
 # ~/dev/py/pzog/pzog/__init__.py
 
-__version__ = '0.3.2'
-__version_date__ = '2016-03-18'
+__version__      = '0.4.0'
+__version_date__ = '2016-03-28'
 
 __all__ = ['__version__', '__version_date__',
            'PZOG_MAX_MSG', 'PZOG_PORT', 'RING_IP_ADDR',
@@ -27,3 +27,4 @@ RING_IP_ADDR = [('losaltos', '192.168.152.253'),
 @property
 def ringSize():
     return len(RING_IP_ADDR)
+

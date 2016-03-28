@@ -19,7 +19,7 @@ setup(name='pzog',
       py_modules=[],
       #
       # a package has a subdir and an __init__.py
-      packages=['pzog', 'pzog/xlattice', ],
+      packages=['pzog', ],
       #
       # following could be in scripts/ subdir; SQuote
       scripts=['psprog', 'pzogd', 'ringDataGen'],

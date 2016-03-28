@@ -1,5 +1,17 @@
 ~/dev/py/pzog/TODO
 
+2016-03-28
+    * move functionality to xlattice_py:
+        - node.py, testNode.py                                          * DONE
+        - drop the versions here
+    * drop testU.py (just a stub), testCrypto.py (pretty much a stub)
+    * move everything related to SHA3 to xlattice_py
+    * drop limbo/ (local copies of stuff moved to xlattice_py after 
+        a reasonable period
+
+2016-03-18
+    * only 1 out of 3 commits seem to have made it to github
+
 2016-02-24
     * ghpDoc/crypto.md needs further tidying up
         - the last section is incomplete
