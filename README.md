@@ -8,7 +8,7 @@ Initial commit.
 
 ## Project Status
 
-Alpha.  Code and unit tests exist, but some tests fail.
+Alpha.  Partical (well, skeletal) implementation exists but is untested.
 
 ## On-line Documentation
 
