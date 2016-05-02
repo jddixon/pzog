@@ -1,10 +1,7 @@
-pySloc -v -X limbo  $@       \
-    bash:auto8it bash:countem    bash:installit test.all         \
-    not#:MANIFEST.in                        \
-    txt:openssl2k.pem txt:openssl4k.pem     \
-    py:ringDataGen                          \
-    py:psprog py:pzogd                      \
-    not#:ringData.xlgo                      \
+#!/usr/bin/env bash
 
+cd $DEV_BASE/py/pzog
 
+rm -rf build/* 
 
+pySloc  -X dist -X limbo -v $@
