@@ -1,1 +1,15 @@
-echo "tests moved to xlattice_py"
+#!/usr/bin/env bash
+
+if [ ! -z "${DEV_BASE// }" ]
+then
+  cd $DEV_BASE/py/pzog
+  
+  ./testCrypto.py
+  ./testNode.py
+  ./testSHA3_256.py
+  ./testU.py
+  echo "CONGRATULATIONS: YOU HAVE OVERWRITTEN test.all"
+  
+else
+  echo "DEV_BASE is not defined"
+fi
