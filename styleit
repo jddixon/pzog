@@ -4,9 +4,9 @@ if [ ! -z "${DEV_BASE// }" ]
 then
   cd $DEV_BASE/py/pzog
   
-  rm -rf 
+  autopep8 -ai -r pzog ringDataGen psprog pzogd *.py
+  echo "not styling logs/ subdir"
   
-  pySloc -L py  -X dist -X limbo -v $@
 else
   echo "DEV_BASE is not defined"
 fi

@@ -1,20 +1,16 @@
-# ~/dev/py/.dvcz/projCfg.local
+# ~/dev/py/pzog/.dvcz/projCfg.local
 
 code:std:.dvcz/projCfg.local
 code:std:.dvcz/projCfg
 code:std:.gitignore
 code:std:MANIFEST.in
 
-txt:std:README.md
-txt:std:LICENSE.md
+# don't want to count these
+# txt:std:README.md
+# txt:std:LICENSE.md
 
 dir:extern:limbo                # must be -X but does not get cleared
 dir:pkg:pzog
-
-bash:std:auto8it
-bash:std:countem
-bash:std:installit
-bash:std:test.all
 
 py:global:ringDataGen
 py:global:psprog
