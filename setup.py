@@ -23,5 +23,9 @@ setup(name='pzog',
       #
       # following could be in scripts/ subdir; SQuote
       scripts=['psprog', 'pzogd', 'ringDataGen'],
-      # MISSING url
+      # MISSING description
+      classifiers=[
+          'License :: OSI Approved :: MIT License',
+          'Programming Language :: Python :: 3',
+      ],
       )
