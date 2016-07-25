@@ -7,19 +7,19 @@ zPjEShF9rvcNa9XEy1dKpcDz9Szbm2SlxOgM83fDDGtOq4SSCSqndtxrOvXXPB57
 H1mJV/FmerbXRPm5ERJVNIxtLk7Gr2Ce45FVlWyJGMhpfVlKkkk+bRQ02OFfazJI
 GQIDAQAB
 -----END RSA PUBLIC KEY-----
-pzog v0.4.3
-2016-06-27 17:07:05
+pzog v0.5.0
+2016-07-25 17:06:12
 # START CONTENT #
 pzog
  .dvcz
-  builds c9c60f572bb8c090eefe2c7b8d96dc7076921f0e
-  lastBuildList b63db306e4561185834abaee4ad08989e31c3c5b
-  projCfg df80629a474be147242eb8caabbe5fe71b10b3bc
+  builds 0d6e57043befeea4b210e5cca80846c4bf0a9cea
+  lastBuildList d2c0a5ba73d2319f41e1543e6a0e8412e8f0bb8e
+  projCfg 05382f12db15bb66b2774d01071ade4ceb884740
   projCfg.local 387e0ac1494a215ecd416b83a301161cd726a230
-  version 5782ad493c98c65ed360e77e96424826cfc34852
+  version fc04ae853e5a01bb1cb48af269f0937a37f3c9ba
  .gitignore 4f2b2abfed722644691846a26ce5ed7c94969ff3
  .gitignore.local f882197ec330edd8519e7f620df4e7e9588c2b6c
- CHANGES 00bdf34e86eb8a09900f7b30b2f40ff4643a2bb8
+ CHANGES aa8dd60b80f4f37fe4d3eb8b1a05695c5068ac1d
  LICENSE.md 50a6fc1b15e967d1dc37ba7559cf121a66240830
  MANIFEST.in 60c1295aaebc894cd93d0a521c931c79569a4667
  README 6201a22bc421850cf91c751b819b6b3cca9dadd4
@@ -44,6 +44,7 @@ pzog
   pzog-0.4.1.tar.gz 37bce56f06be54bda8938de12ed4cc08c7d193a6
   pzog-0.4.2.tar.gz a0774702a0247c59c7c9883998ad87b59078b1be
   pzog-0.4.3.tar.gz 6ecb76d4c90780e8b56a111be1d02ec697a1feab
+  pzog-0.5.0.tar.gz 5c8b94173a9b22d77f9a47a481b35d0ff8f87837
  ghpDoc
   crypto.md f3d8d62427a35fb8d52f18049e8cd0ca52cc80c7
   css
@@ -68,22 +69,15 @@ pzog
  openssl4k.pem 6f8e9af343875a978df27cc25dcf1f637ec8626e
  psprog 24ce2d287bd880f82babdbe93c95d83dcda0091f
  pzog
-  __init__.py 583cce55afaffbc04c8a55dafe74567ce9221107
-  xlattice
-   SHA3_256.py e217174365779fe4a638d525c218559351a63551
-   __init__.py 7513c3460608e6a43b6846169349ccd409acc7a4
-   crypto.py ba927d6588d035eac7f09028797c596e568109db
-   node.py c4c8397f0546e6f4e4a113a1e9f05383c5dbd175
+  __init__.py b20938921524bf1c7ab11d558dfc445c0972a3a4
  pzogd 5816b12c3561fa6c8227dcd65dbb7fd325fc97f4
  ringData.xlgo a6e0fb16eb6fa0ba3600dffa7a372b52f6bdf926
  ringDataGen df206da1278840787a26f4b850a3816297bb7106
  setup.py be220b51fc12a3be5bed911fe945f052029edd19
  styleit 9425a7127bd89667d965fa93ffde939d06ec3067
- test.all fc4abc535c29c88ccdbfbc959494742b282117f9
- testCrypto.py 6db5e26188ee01156da1133ad30b1bbec08b9d5d
- testNode.py bb3d703f77cebe7b06728a54a7db2701e75e082f
- testSHA3_256.py 5a13c55a8d5d25c9eac9e4af8d7c1e9633eb715c
- testU.py 8892d820d213c5f4865e067cf84ed8536655746f
+ test.all 5c908d06227d15860147db68ba05a79e22b91c68
+ testNode.py f83c299cd02993d7dcaaf4b377189572f8620ea5
+ testU.py 487dc7157ba3a144ded6f83b489b6f51d3447abd
 # END CONTENT #
 
-OI0FYsPmyj6SQR5WqD/N4/m4R/a5bDX/0XvjeMNdm18E4AcJF4xd9mv9+7DLffkWhHPy5enkr6Xc5i0DzaY9g6KKf2VtciKjxMcs/Wf8wQCsGQMGfA9ybmrIRPVCFYRjadz20fwLtT5Y4zxLyaeCV4NqdGGednEXm+eIVL3yOvJQBOvr6ZmXylo5izKXfqPn3zjaZuarrJh22JOG1BWqqrach0mv1eq0EdTdRHEgp9rdYyewUPswm/eyUEOG2Oz+BA3TqbqJtnAlzoZWQovX9PK7re+pWfI1DAX265cCiHipue1JRscTcvdmUfAUr4UcNH/WlODDEnMlqYzCddZ7kg==
+Jv+7w0ej6S3mPSBoUJJ4hIf5vGp7m4YUzJziQZdbabbG6uH/AlniGKL1G4WnR9T/maQYlvFEhJGGo2CrvvGAG1ZuaTwDJhppenJghecAbkOoK1rHh4Cg82O/bq/dnzvQeKizL/G10L5uCyc1xSn1BHUKXQQUzG7Q5ufDdPa99QdmWqi1CGARtp4+/cdMVAexz0vgUcUThhk49aN0YAUrzb4+5gu6GUf2d0dlQV/s0Q71aMpmzGy3OKp6xc9SpOIHV2RKfgVvc5kxvB8JXhCGUr/GNCWL8VLvO3mCaYeOrwT93ZlhkEC5wVNK3IzXDZ7GvQh6w3fib8Hcd9BJBOSx4g==

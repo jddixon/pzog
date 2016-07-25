@@ -2,8 +2,8 @@
 project:pzog
 package:pzog
 mainlang:py
-version:0.4.2
-versionDate:2016-05-30
+version:0.4.3
+versionDate:2016-06-27
 :?dirs?:
 dir:std:ghpDoc
 dir:std:dist
@@ -40,9 +40,7 @@ py:std:setup.py
 py:global:ringDataGen
 py:global:psprog
 py:global:pzogd
-py:test:testCrypto.py
 py:test:testNode.py
-py:test:testSHA3_256.py
 py:test:testU.py
 bin:local:openssl2k.pem
 bin:local:openssl4k.pem
