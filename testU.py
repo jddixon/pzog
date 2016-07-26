@@ -23,7 +23,9 @@ class TestU (unittest.TestCase):
 
     def testURandom(self):
         stuff = os.urandom(256)
-        print(("stuff is %s" % stuff.__class__))
+        print(("os.urandom() output is %s" % stuff.__class__))
+
+        # XXX STUB XXX
 
 if __name__ == '__main__':
     unittest.main()
