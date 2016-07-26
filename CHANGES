@@ -1,5 +1,14 @@
 ~/dev/py/pzog/CHANGES
 
+v0.5.1
+    2016-07-26
+        * correct typo in crypto.html
+        * dropped pzog/xlattice
+        * correct use of lockMgr, lockMgri                          SLOC 1138
+v0.5.0
+    2016-07-25
+        * converted to Python3
+        * modified to use xlattice_py                               SLOC 1286
 v0.4.3
     2016-06-27
         * add ghpDoc/{css,img}/                                     SLOC 1363
@@ -106,6 +115,8 @@ v0.1
             - bad messages cause the connection to be closed            * ???
         * a keyboard interrupt (ctrl-C) causes pzogd to shut down
             in an orderly fashion
+
+
 
 
 

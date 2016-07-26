@@ -82,7 +82,7 @@ article.
 
 **LATER NODE:** the ASN.1 encoding for an SHA1 digest has one oddity.  The
   first two bytes of the OID, 1.3.14.3.2.26, are combined into 40*val1 + val2,
-  which is 0x2b (decimal 3).  This gives a byte sequence
+  which is 0x2b (decimal 43).  This gives a byte sequence
 
 	SEQUENCE            30
 	  LENGTH            21

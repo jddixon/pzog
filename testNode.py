@@ -1,18 +1,16 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # testNode.py
 import time
 import hashlib
 import os
 import sys
-if sys.version_info < (3, 4):
-    import sha3
 import unittest
 from Crypto.Hash import SHA as sha
 from Crypto.PublicKey import RSA as rsa
 from Crypto.Signature import PKCS1_v1_5 as pkcs1
 
-from pzog.xlattice.node import AbstractNode, Node, Peer
+from xlattice.node import AbstractNode, Node, Peer
 from rnglib import SimpleRNG
 
 rng = SimpleRNG(time.time)
@@ -21,8 +19,8 @@ rng = SimpleRNG(time.time)
 class TestNode (unittest.TestCase):
     """
     Tests an XLattice-style Node, including its sign() and verify()
-    functions, using SHA1 and SHA3 (Keccak); for the latter I use a
-    private OID.
+    functions, using SHA1 and SHA256.
+    Used to use SHA3 (Keccak); for the latter I used a private OID.
     """
 
     def setUp(self):
@@ -37,15 +35,15 @@ class TestNode (unittest.TestCase):
         pub = node.pubKey
         id = node.nodeID
         if usingSHA1:
-            self.assertEquals(20, len(id))
+            self.assertEqual(20, len(id))
             d = hashlib.sha1()
         else:
-            self.assertEquals(32, len(id))
-            d = hashlib.sha3_256()
+            self.assertEqual(32, len(id))
+            d = hashlib.sha256()
 
         d.update(pub.exportKey())
         expectedID = d.digest()
-        self.assertEquals(expectedID, id)
+        self.assertEqual(expectedID, id)
 
         # make a random array of bytes
         count = 16 + rng.nextInt16(256)
@@ -83,8 +81,8 @@ class TestNode (unittest.TestCase):
         self.checkNode(n, usingSHA1)
 
         # The _RSAobj.publickey() returns a raw key.
-        self.assertEquals(key.publickey().exportKey(),
-                          n.pubKey.exportKey())
+        self.assertEqual(key.publickey().exportKey(),
+                         n.pubKey.exportKey())
 
         # -----------------------------------------------------------
         # CLEAN THIS UP: node.key and node.pubKey should return

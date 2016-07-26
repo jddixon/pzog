@@ -4,9 +4,7 @@ if [ ! -z "${DEV_BASE// }" ]
 then
   cd $DEV_BASE/py/pzog
   
-  ./testCrypto.py
   ./testNode.py
-  ./testSHA3_256.py
   ./testU.py
   
 else

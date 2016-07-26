@@ -2,8 +2,8 @@
 project:pzog
 package:pzog
 mainlang:py
-version:0.4.2
-versionDate:2016-05-30
+version:0.5.1
+versionDate:2016-07-26
 :?dirs?:
 dir:std:ghpDoc
 dir:std:dist
@@ -28,7 +28,6 @@ code:local:ringData.xlgo
 txt:std:CHANGES
 txt:std:LICENSE.md
 txt:std:README
-txt:std:README.crypto
 txt:std:README.md
 txt:std:TODO
 bash:std:bkp2U
@@ -40,9 +39,7 @@ py:std:setup.py
 py:global:ringDataGen
 py:global:psprog
 py:global:pzogd
-py:test:testCrypto.py
 py:test:testNode.py
-py:test:testSHA3_256.py
 py:test:testU.py
 bin:local:openssl2k.pem
 bin:local:openssl4k.pem

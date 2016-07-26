@@ -8,7 +8,9 @@ import time
 import socket
 from argparse import ArgumentParser
 
-import serverutil
+from xlattice.procLock import ProcLock
+from xlattice.ftLog import LogMgr
+
 from pzog import *
 
 
@@ -156,8 +158,8 @@ def main():
         accessLog = None
         errorLog = None
         try:
-            lockMgr = serverutil.LockMgr('pzog')
-            logMgr = serverutil.LogMgr(args.logDir)
+            lockMgr = ProcLock('pzogd')
+            logMgr = LogMgr(args.logDir)
             accessLog = logMgr.open('access')
             args.accessLog = accessLog
 #           # DEBUG -------------------------------------------------
@@ -174,6 +176,9 @@ def main():
             errorLog.log("opened error log")
             # END ---------------------------------------------------
             doWhatever(args)
+        except:
+            print_exc()
+            sys.exit(1)
         finally:
             # XXX better: put each of these in a try block, swallowing
             #   exceptions
