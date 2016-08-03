@@ -7,19 +7,19 @@ zPjEShF9rvcNa9XEy1dKpcDz9Szbm2SlxOgM83fDDGtOq4SSCSqndtxrOvXXPB57
 H1mJV/FmerbXRPm5ERJVNIxtLk7Gr2Ce45FVlWyJGMhpfVlKkkk+bRQ02OFfazJI
 GQIDAQAB
 -----END RSA PUBLIC KEY-----
-pzog v0.5.1
-2016-07-26 22:24:39
+pzog v0.5.2
+2016-08-03 23:51:18
 # START CONTENT #
 pzog
  .dvcz
-  builds 2a87e76857a352ca89eefe1f4a7a4e16668e3c61
-  lastBuildList 7d8db50ce894083b4b2812f1316c00561935fb80
+  builds caf30b87ff4418c323fb5c083c5478722fdca551
+  lastBuildList 116adff6ace908abb527c5d1d754862741a1af01
   projCfg ccd159d2c9dc7f5b1a4e1a51a5cb7a26323c07fa
   projCfg.local 387e0ac1494a215ecd416b83a301161cd726a230
-  version e18c5471d017dc9b78ba62784b7e1854cfd8a2b8
+  version 081c20607d7bd5ccd34b50df68a4e99b0bbe35ad
  .gitignore 4f2b2abfed722644691846a26ce5ed7c94969ff3
  .gitignore.local f882197ec330edd8519e7f620df4e7e9588c2b6c
- CHANGES d99bfa51520cec10e586dbeed7dff91e58b06e83
+ CHANGES 2599636a00c89b5537c18cae442eb79bf5159fbc
  LICENSE.md 50a6fc1b15e967d1dc37ba7559cf121a66240830
  MANIFEST.in 60c1295aaebc894cd93d0a521c931c79569a4667
  README 6201a22bc421850cf91c751b819b6b3cca9dadd4
@@ -45,6 +45,7 @@ pzog
   pzog-0.4.3.tar.gz 6ecb76d4c90780e8b56a111be1d02ec697a1feab
   pzog-0.5.0.tar.gz 5c8b94173a9b22d77f9a47a481b35d0ff8f87837
   pzog-0.5.1.tar.gz 7f793e4b67ddbad112d8f1857555cf89293c4a1c
+  pzog-0.5.2.tar.gz 21490deb641fe8e9d2746cd186452a8f0f5857ff
  ghpDoc
   crypto.md 699c6f6b8ed4efcb663f0cf4a0178dd259e4ba78
   css
@@ -69,7 +70,7 @@ pzog
  openssl4k.pem 6f8e9af343875a978df27cc25dcf1f637ec8626e
  psprog 24ce2d287bd880f82babdbe93c95d83dcda0091f
  pzog
-  __init__.py 5ba09c82bf84a15bb4809ad9e9dc60ab184db432
+  __init__.py 405e5e1f7d4c99480e724a2b6f9c2b4d1ff21349
  pzogd 381f962bbc26337d1717b6ea960dd281c91b835d
  ringData.xlgo a6e0fb16eb6fa0ba3600dffa7a372b52f6bdf926
  ringDataGen df206da1278840787a26f4b850a3816297bb7106
@@ -80,4 +81,4 @@ pzog
  testU.py 92a9386114f87ac922cdcf576a42a7615c629698
 # END CONTENT #
 
-g4LkvJ4Zs9Mizq/GqZpyFk41NJNCqV0wpQxkzQin9mTsqs5XxjK0ZFJkvCsEGIWDcCUvuP3I4IpzcB3wsL0PyWaNyZoJBfiTlX7bc+ULxjN3dCQAyPHEm8ehEFh4SDk9cBa2g/VotCSOtyqJ0MHFduhNydT99wrpRKRfB+5mRTiESggEgihylWs29SSOA+DWb+qGtwZM6jufguNra4oGHclm6JIgnqM0rw6hP/3cDwWoUY/vn0pdxMj7u0bDfQiRoiYWR6L1LkNDX9RTOGfmdsppOVJ1pMnBb/pFasyu5qPP9mXxt438Dp6rPH7nkTlSFnS7zMn3XiblrHxiAaajRA==
+TMQeffjnrLATkVpG31GfTNS0CNgnXBn2b8xDG7XT6hfz0QjtrHXMlQbv9hLmXcjwCXQRl/tW2rzAZtFGKlOxvlePpZa3D5t5FA6W4GoqG3LhOALu34+q0a3RYxCgM/wEROyGAQsiMIuvw3UoZtW5rcpKWvWqqV9Csaxt/E1JI0jfjmA4QLVvGBRe+D4p93dgYJovkGT+rPqJX49dOvYXU9bnfAd4ugPvhz00C5sDAFtn2HXq98A5GPpaYZN3gmtzeFlQKn4/XDeuj7ViopA3Nqn77nsoYHH1jorcBlKydMSvCvi02Stg2kqCxIeODSluqGsmtlmL1f9Ufkzsm9Amng==
