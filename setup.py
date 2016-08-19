@@ -23,9 +23,13 @@ setup(name='pzog',
       #
       # following could be in scripts/ subdir; SQuote
       scripts=['psprog', 'pzogd', 'ringDataGen'],
-      # MISSING description
+      description='software organizing a ring of 5-6 machines sharing data over a full mesh',
+      url='https://jddixon.github.io/pzog',
       classifiers=[
+          'Development Status :: 2 - Pre-Alpha',
+          'Intended Audience :: Developers',
           'License :: OSI Approved :: MIT License',
-          'Programming Language :: Python :: 3',
+          'Natural Language :: English',
+          'Programming Language :: Python 3',
       ],
       )
