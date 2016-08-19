@@ -1,5 +1,8 @@
 ~/dev/py/pzog/CHANGES
 
+v0.5.4
+    2016-08-19
+        * edits to README; add .gitignore                           SLOC 1149
 v0.5.3
     2016-08-18
         * rendered documentation somewhat more coherent             SLOC 1146
@@ -121,6 +124,7 @@ v0.1
             - bad messages cause the connection to be closed            * ???
         * a keyboard interrupt (ctrl-C) causes pzogd to shut down
             in an orderly fashion
+
 
 
 
