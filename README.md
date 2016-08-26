@@ -110,7 +110,7 @@ receiver's `+2` peer with a zero wrapping.
 #### Protocol
 
 pzog
-[protocol](http://www.webopedia.com/TERM/P/protocol)
+[protocol](http://www.webopedia.com/TERM/P/protocol.html)
 should be `org.xlattice.pzog`
 and should at this point
 define two message pairs: `keepAlive` and `ack`, and `data` and `ok`.
