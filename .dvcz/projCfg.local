@@ -1,5 +1,7 @@
 # ~/dev/py/pzog/.dvcz/projCfg.local
 
+txt:std:LICENSE-MIT.md
+
 code:std:.dvcz/projCfg.local
 code:std:.dvcz/projCfg
 code:std:.gitignore
@@ -7,7 +9,6 @@ code:std:MANIFEST.in
 
 # don't want to count these
 # txt:std:README.md
-# txt:std:LICENSE.md
 
 dir:extern:limbo                # must be -X but does not get cleared
 dir:pkg:pzog

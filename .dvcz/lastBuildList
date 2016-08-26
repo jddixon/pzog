@@ -7,26 +7,28 @@ zPjEShF9rvcNa9XEy1dKpcDz9Szbm2SlxOgM83fDDGtOq4SSCSqndtxrOvXXPB57
 H1mJV/FmerbXRPm5ERJVNIxtLk7Gr2Ce45FVlWyJGMhpfVlKkkk+bRQ02OFfazJI
 GQIDAQAB
 -----END RSA PUBLIC KEY-----
-pzog v0.5.5
-2016-08-21 00:55:03
+pzog v0.5.6
+2016-08-26 18:57:44
 # BEGIN CONTENT #
 pzog
  .dvcz
-  builds 98b0a6c96a06d615793586a3cb809f48555e7821
-  lastBuildList f6b717eb86bf53e506eaa4f8bf4e315855765f93
-  projCfg ccd159d2c9dc7f5b1a4e1a51a5cb7a26323c07fa
-  projCfg.local 387e0ac1494a215ecd416b83a301161cd726a230
-  version 96b3c6ab554251ad1e5ecac2a3bd96210917994f
+  builds 14867de90a1251edd49bc599d969f5baa9969d3b
+  copyright 40a152c0598a7da436fc48b2286fb14b4f2e9101
+  lastBuildList e2e644c0085a96ac520700f9dc7b920d30727db5
+  license 5977a55c75bb4612004451a56b0b4c22d9d3311d
+  projCfg 476b5b65ebdeee2d7da17565ebdcca3269994c39
+  projCfg.local 7e6b7ee7300f14ce678e8d25c3fd723d8c167366
+  version 2c844eea82130534c7d8762ba01a71fa60783c63
  .gitignore 4f2b2abfed722644691846a26ce5ed7c94969ff3
  .gitignore.local f882197ec330edd8519e7f620df4e7e9588c2b6c
- CHANGES 4054eb09abe549f1b2dd0af4f095e1cd148df104
- LICENSE.md 50a6fc1b15e967d1dc37ba7559cf121a66240830
+ CHANGES aa1c443f284a61d53c63e58e12e5aad21b15bdd4
+ LICENSE-MIT.md 7ff8ae89c5e4489f22b3a360a03225241877bc8d
  MANIFEST.in 60c1295aaebc894cd93d0a521c931c79569a4667
  README a5b81fc497558ff830ab89b3507aafb1e78bc8d1
- README.md ab124b60c4a7a90b8dba6d8e07bf448bfb662cfd
+ README.md 0f67aa1bcd61112036f10dad9e21425a5944d89f
  TODO 6ec8280fd086f22604534352b0733abc62ff60e7
  bkp2U 14e3c81bb5e586b25d26876985b378c9ec996e5b
- countem 3c75774455828fd8b64a2f9e075887924166c8d6
+ countem 082bf1e97e43922617aedae901d1be1cab73e20c
  crypto.jdd 699c6f6b8ed4efcb663f0cf4a0178dd259e4ba78
  dist
   pzog-0.2.1.tar.gz 7217e50d67a22fb47a061ea8706f6fd61442074a
@@ -50,6 +52,7 @@ pzog
   pzog-0.5.3.tar.gz daa4b804acae84a37065d4950d7aa2260ceb7422
   pzog-0.5.4.tar.gz 6859bc89cad0e926cf7db9f299d55828930fd62c
   pzog-0.5.5.tar.gz 0e5cc7b525923f925c435456ccf9de2022a77faf
+  pzog-0.5.6.tar.gz 50bcbffb8830f030eb95486cc01b2415b98bed87
  ghpDoc
   css
    LICENSE.html5-boilerplate.md ded771b3245b190da0e81c76de5a80d41392c0a6
@@ -66,7 +69,7 @@ pzog
    simple-cluster.jpg 6b223ddd25937c1ef75ef328f36fc3436f10bd62
    xl-registration.jpg 15cbf951f9db173a45428b32dcec87aca83bbdf0
    xlattice-2014.jpg f185aaad06db71acd9454f31054c62c56d36f37f
-  index.md 84197568c3ced64680916fb119e7dd1ae3bee364
+  index.md 0ded287d7a8afb0fa960a48ced06fb59ae437fcf
  installit 1e9a9526c7ca00e6085d46311dd308378ffc2342
  logs
   access.log becb1d87b6014651a719445ed6e6a40ba43cfebc
@@ -75,7 +78,7 @@ pzog
  openssl4k.pem 6f8e9af343875a978df27cc25dcf1f637ec8626e
  psprog 24ce2d287bd880f82babdbe93c95d83dcda0091f
  pzog
-  __init__.py 5708e380c8f1a59c831a920b1ee2f571c28fc8de
+  __init__.py 5b9b51382ea733b1e313361ee4c22130b187adb1
  pzogd 381f962bbc26337d1717b6ea960dd281c91b835d
  ringData.xlgo a6e0fb16eb6fa0ba3600dffa7a372b52f6bdf926
  ringDataGen df206da1278840787a26f4b850a3816297bb7106
@@ -86,4 +89,4 @@ pzog
  testU.py 92a9386114f87ac922cdcf576a42a7615c629698
 # END CONTENT #
 
-P+IoEd+oQWI0xT75f0XFzeu7DUiwMGYSkBj/kYC4Hf24wXUo3D0GoekrakekN0x1uVy+HTLFWdk0jubQiN8Ggm1D2tX4iSI8T7F+HwonI/k945/80xmUna3fxVgeMSmJsTqnOaQzc/EMfestAyLfPY+cyo4jBRu9u1V3uarcnhhsyMfq3amS4Y1KjqdGCb/J+Ybj6gAHwem36q8kzMgo9RhZwMZSoVb6KDdBryUQlZUzCZMcYNziEOZkGyySW6qe/gfnhT+ZWn5ZdG3kxAcLJ+mfHYaLtawrs9cXm9ulOya+bejuQNywfBnpfcoTGB+MUggt3ukfquO2T5yotbnwLg==
+e7Pxh8PF58mL40ux10xHYfPWAGSiWMogOVjw9mVPK0+nB/H1nNvzSdtjedXF2LMR8l3zwtcIfe5F9oUeR9KE1+sqwNV+ght68hkNRj2ZI7hPsn+LdFkfKvHcmI3WKnqoI7j1o3OvJzuWxrVKs6aes4ReLjFdljWYPA9MCh1mPW5iTkbdCcIIVjR4UMArmkH476UH0+dEw7PZm5XzhJ6Ys2A9AJOey7yaUKMVbY6Z0RUZfn1B3Ri7Krf1lia+L/g6YCeBjaPayqcMfnhm1nXkxa7LlXLbOKvNNXiSOWPYD20r5TKsDmZ8ZldskAH7uhGHy7KaXCTB9wDu+V3qV950eQ==
