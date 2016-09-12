@@ -10,7 +10,7 @@ from Crypto.Hash import SHA as sha
 from Crypto.PublicKey import RSA as rsa
 from Crypto.Signature import PKCS1_v1_5 as pkcs1
 
-from xlattice import Q
+from xlattice import Q, checkUsingSHA
 from xlattice.node import AbstractNode, Node, Peer
 from rnglib import SimpleRNG
 
@@ -20,8 +20,7 @@ rng = SimpleRNG(time.time)
 class TestNode (unittest.TestCase):
     """
     Tests an XLattice-style Node, including its sign() and verify()
-    functions, using SHA1 and SHA256.
-    Used to use SHA3 (Keccak); for the latter I used a private OID.
+    functions, using SHA1, SHA2(56), and SHA3
     """
 
     def setUp(self):
@@ -38,10 +37,12 @@ class TestNode (unittest.TestCase):
         if usingSHA == Q.USING_SHA1:
             self.assertEqual(20, len(id))
             d = hashlib.sha1()
-        else:
-            # FIX ME FIX ME FIX ME
+        elif usingSHA == Q.USING_SHA2:
             self.assertEqual(32, len(id))
             d = hashlib.sha256()
+        elif usingSHA == Q.USING_SHA3:
+            self.assertEqual(32, len(id))
+            d = hashlib.sha3_256()
 
         d.update(pub.exportKey())
         expectedID = d.digest()
@@ -66,11 +67,13 @@ class TestNode (unittest.TestCase):
         self.checkNode(n, usingSHA)
 
     def testGeneratedRSAKey(self):
-        self.doTestGenerateRSAKey(True)
-        self.doTestGenerateRSAKey(False)
+        for using in [Q.USING_SHA1, Q.USING_SHA2, Q.USING_SHA3, ]:
+            self.doTestGenerateRSAKey(using)
 
     # ---------------------------------------------------------------
     def doTestWithOpenSSLKey(self, usingSHA):
+
+        checkUsingSHA(usingSHA)
 
         # import an openSSL-generated 2048-bit key (this becomes a
         # string constant in this program)
@@ -93,10 +96,8 @@ class TestNode (unittest.TestCase):
         # -----------------------------------------------------------
 
     def testWithOpenSSLKey(self):
-        self.doTestWithOpenSSLKey(True)
-
-        # FAILS:
-        self.doTestWithOpenSSLKey(False)
+        for using in [Q.USING_SHA1, Q.USING_SHA2, Q.USING_SHA3, ]:
+            self.doTestWithOpenSSLKey(using)
 
 if __name__ == '__main__':
     unittest.main()

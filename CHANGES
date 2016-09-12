@@ -1,5 +1,8 @@
 ~/dev/py/pzog/CHANGES
 
+v0.6.1
+    2016-09-12
+        * fixed FIX_MEs                                             SLOC 1189
 v0.6.0
     2016-09-02
         * usingSHA1 -> usingSHA (partial)                           SLOC 1184
@@ -133,6 +136,7 @@ v0.1
             - bad messages cause the connection to be closed            * ???
         * a keyboard interrupt (ctrl-C) causes pzogd to shut down
             in an orderly fashion
+
 
 
 
