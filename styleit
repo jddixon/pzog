@@ -4,7 +4,7 @@ if [ ! -z "${DEV_BASE// }" ]
 then
   cd $DEV_BASE/py/pzog
   
-  autopep8 -ai -r pzog ringDataGen psprog pzogd *.py
+  autopep8 -ai -r pzog ring_data_gen psprog pzogd *.py
   echo "not styling logs/ subdir"
   
 else

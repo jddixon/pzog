@@ -22,7 +22,7 @@ setup(name='pzog',
       packages=['pzog', ],
       #
       # following could be in scripts/ subdir; SQuote
-      scripts=['psprog', 'pzogd', 'ringDataGen'],
+      scripts=['psprog', 'pzogd', 'ring_data_gen'],
       description='software organizing a ring of 5-6 machines sharing data over a full mesh',
       url='https://jddixon.github.io/pzog',
       classifiers=[

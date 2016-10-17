@@ -13,8 +13,8 @@ code:std:MANIFEST.in
 dir:extern:limbo                # must be -X but does not get cleared
 dir:pkg:pzog
 
-py:global:ringDataGen
+py:global:ring_data_gen
 py:global:psprog
 py:global:pzogd
 
-code:local:ringData.xlgo
+code:local:ring_data.xlgo
