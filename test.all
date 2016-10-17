@@ -4,8 +4,8 @@ if [ ! -z "${DEV_BASE// }" ]
 then
   cd $DEV_BASE/py/pzog
   
-  ./testNode.py
-  ./testU.py
+  ./test_node.py
+  ./test_u.py
   
 else
   echo "DEV_BASE is not defined"
