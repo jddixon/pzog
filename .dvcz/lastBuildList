@@ -7,28 +7,28 @@ zPjEShF9rvcNa9XEy1dKpcDz9Szbm2SlxOgM83fDDGtOq4SSCSqndtxrOvXXPB57
 H1mJV/FmerbXRPm5ERJVNIxtLk7Gr2Ce45FVlWyJGMhpfVlKkkk+bRQ02OFfazJI
 GQIDAQAB
 -----END RSA PUBLIC KEY-----
-pzog v0.6.2
-2016-10-17 22:25:02
+pzog v0.6.3
+2016-10-25 21:44:25
 # BEGIN CONTENT #
 pzog
  .dvcz
-  builds 6b8a251da1fde6251ec0f5425b47dee1c3f20738
+  builds d2e616f9d0d408f8c2e40157fe12dcd5de62b22b
   copyright 40a152c0598a7da436fc48b2286fb14b4f2e9101
-  lastBuildList a44f6ef38fa3e99737ed334bc2e159eaaa74bbe6
+  lastBuildList 221dfc36e1b7b261104fdcad017aa4feb656013a
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
   projCfg 07b1cea5c718f49eab48bf6b6937873be086cbe9
   projCfg.local 9730c32843520d2d486cf6b6940a6c905608112d
-  version 7452ded6d6e038db58f80328bc2add9fcebcbf3b
+  version 8ca6323a6cfbdaa8be3150f01d85dc69b8020eae
  .gitignore 45603d33996e13b696aa167013c74157d0b138e9
  .gitignore.local f882197ec330edd8519e7f620df4e7e9588c2b6c
- CHANGES 650fa2e1f6bcd03f9aa38a7b67fd0b43a60c899a
+ CHANGES 4afcc42ca8ae46e389318d0364d6765329af3271
  LICENSE-MIT.md 7ff8ae89c5e4489f22b3a360a03225241877bc8d
  MANIFEST.in 60c1295aaebc894cd93d0a521c931c79569a4667
  README a5b81fc497558ff830ab89b3507aafb1e78bc8d1
  README.md 0f67aa1bcd61112036f10dad9e21425a5944d89f
  TODO 5a00e111d6bd9a376b794fb833764349dc9f3f71
- bkp2U 38cde36829e1d97229d1320cd0892a8b02f87f73
- checkCoverage c17285d7affb7cc8249f8fc1f922faaa69962e6a
+ bkp2U 4dd724c713ca970a69e3ddbf131207a0ed9e7ea8
+ checkCoverage 97b1dd56f5cdc419fa111dc36b4ddd8b4e13fe9f
  countem b154b53af957668515f94db42ca1c3156d009f2e
  crypto.jdd 699c6f6b8ed4efcb663f0cf4a0178dd259e4ba78
  dist
@@ -57,7 +57,8 @@ pzog
   pzog-0.6.0.tar.gz b8f6af2500062bc099afaa50cc4acf89ea94cf9f
   pzog-0.6.1.tar.gz b66679acf05300621c386de27c524476c43b12bb
   pzog-0.6.2.tar.gz d29a01da0f13cc8c970e4a124e0743c0a0b9e0a1
- doPyLint b6f187d48d9615af079f4440b805c577064dc78e
+  pzog-0.6.3.tar.gz 5e539dd0c70c6fb39f0926337cabf839e13f66f2
+ doPyLint b28672a1fefb80fcb92020198af78325380ff058
  ghpDoc
   css
    LICENSE.html5-boilerplate.md ded771b3245b190da0e81c76de5a80d41392c0a6
@@ -79,20 +80,23 @@ pzog
  logs
   access.log becb1d87b6014651a719445ed6e6a40ba43cfebc
   error.log f027af414029623546e5efa5552f2e9aded1bc9a
+ name-pairs-local d696b9af2ab74497f5f502258970cd63607dc848
  openssl2k.pem d002cf0d15dde3bb0387f201d36ee0d9b8389035
  openssl4k.pem 6f8e9af343875a978df27cc25dcf1f637ec8626e
- psprog 24ce2d287bd880f82babdbe93c95d83dcda0091f
+ psprog e199165e8967c52cccfd8c5e26367fc6653fec15
  pylintrc dd234fda24a547a9071f1e4608a3c1f3b7de9aa0
  pzog
-  __init__.py 33efeef086ed019b11cc65995657cf6c91c97444
- pzogd 381f962bbc26337d1717b6ea960dd281c91b835d
+  __init__.py 78e3650ac3d4607dee5502f9534842a874ebfbdf
+ pzogd c3520ed8e0cd75f81dc6c890adfe2db383e5752a
+ renameLocal 6bfd7e171a5f862450c500ef8fae95670ec83137
+ renamePerAPI 07bee3b63adee924c0cae9893646cb927803a909
  ring_data.xlgo a6e0fb16eb6fa0ba3600dffa7a372b52f6bdf926
  ring_data_gen df206da1278840787a26f4b850a3816297bb7106
- setup.py eedbda4c54a5df14615e3f853cd2b70edfd4ba3c
+ setup.py 78f9efe8e8624edcedca2e4097b8b8a6ce891191
  styleit cb4b8aa871130f86b3a68f3af25bf4902a07d052
  test.all 982856314cdb358318f10e008a693db43a461697
- test_node.py 04691012d477698a718039521ec94d20441edcfc
- test_u.py 92a9386114f87ac922cdcf576a42a7615c629698
+ test_node.py 6c9a9dfbd338f92f94e44fecda4e5af31cb60a6b
+ test_u.py 402d06e716888b8bad218de1fc5e020c81b507af
 # END CONTENT #
 
-HF1FGTx/y+JcpnZ70JICdrc72gpUCYLoGqodetDCwD/Tt3nvY0MBrCoR+vYn3iGkWPy01+OfPB2gyaCcjrqTrsZWQzr2SwgFFczh+PJRpcf+hsGaJBVUx4FMJBIUH7cHmG1P0W+VM0lxxekWFk9PJ5/GJYcZ+pfl9NLDLoq4iQbtwbSw7To3Xtg4VWKIhCAcXJkMnF88Lc3OD0f1Sx/VFdBAmbzsr/9oKsB/col9fLrAlaG2ZtPFDEvsbL3ikccsxk5O0FulL70/pKAue4yDJsFsMPttZzE8qwnTJJhrJ57BLmDiRsrVBIoVFKF0OnI9L23+E3bGxuIVHqM23NkI5g==
+VMvES/LlQFmgS5pemnHlbGJOnFEEWT3h7M40H1zfIam9OqfwP+WzD524ql4nU+A4mASfB6cDgVTVH75srgF13iWNL0T6BFiheSPIbh5F2erJWeS1s7Nnqhbt05/DAJGyzTFusGbcZwCplJs/IXp0DRq777ErSie7hNA1hsRldm+4KtH5eSXDuEZhJewl+tCXh5ztt6GALFHanrTdii5OIqWE5n+TCsLHKXEXahCMYcnChAss/m/cny6cnpiXie4f1ysI5bpPgF/nb6MpmqLzuFnIX5Bt6ryU95Wug/lwz7ZK+9/Ip+TavDcmnkedkmjYIEoKIHj2DNsyW3zoSDH7tQ==

@@ -13,87 +13,87 @@ from argparse import ArgumentParser
 
 import rnglib
 import serverutil
-from pzog import *
+from pzog import __version__, __version_date__, PZOG_PORT, PZOG_MAX_MSG
 
 
 # PATs AND REs ######################################################
 
-def fmtForLog(msg):
+def fmt_for_log(msg):
     now = time.localtime()
     date = time.strftime('%Y-%m-%d', now)
     hours = time.strftime('%H:%M:%S', now)
     return '%s %s %s' % (date, hours, msg)
 
 
-def sendMsg(s, text):
-    s.sendall(text)
-    reply = s.recv(1024)
+def send_msg(string, text):
+    string.sendall(text)
+    reply = string.recv(1024)
     # the reply should always be 'ok' XXX
-    print("DEBUG: sendMsg gets reply '%s'" % str(reply))
+    print("DEBUG: send_msg gets reply '%s'" % str(reply))
 
 
-def doWhatever(args):
+def do_whatever(args):
     rng = rnglib.SimpleRNG(time.time())
-    deltaT = args.interval * 1.0       # in seconds
+    delta_t = args.interval * 1.0       # in seconds
     message = args.message
-    msgCount = args.msgCount
+    msg_count = args.msg_count
     verbose = args.verbose
 
-    pathToLog = os.path.join(args.logDir, 'sprog.log')
+    pathToLog = os.path.join(args.log_dir, 'sprog.log')
     log = None
-    s = None
+    string = None
     try:
         if os.path.exists(pathToLog):
-            log = open(pathToLog, 'a')
+            log = open(pathToLog, 'aVal')
         else:
             log = open(pathToLog, 'w')
-        log.write(fmtForLog('start sprog run') + '\n')
+        log.write(fmt_for_log('start sprog run') + '\n')
 
-        s = None
+        string = None
         (cnx, addr) = (None, None)
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((args.server, args.port))
-        n = msgCount
-        while n != 0:           # loops forever if n < 0
+        string = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        string.connect((args.server, args.port))
+        nnn = msg_count
+        while nnn != 0:           # loops forever if n < 0
             if message:
-                text = fmtForLog(message)
+                text = fmt_for_log(message)
             else:
-                text = fmtForLog(rng.nextFileName(16))
+                text = fmt_for_log(rng.nextFileName(16))
 
-            sendMsg(s, text)
+            send_msg(string, text)
             print(text)      # HACK
-            log.write(fmtForLog(text) + '\n')
+            log.write(fmt_for_log(text) + '\n')
 
-            time.sleep(deltaT)
-            n -= 1
-        sendMsg(s, 'quit')
-        log.write(fmtForLog('end sprog run') + '\n')
+            time.sleep(delta_t)
+            nnn -= 1
+        send_msg(string, 'quit')
+        log.write(fmt_for_log('end sprog run') + '\n')
 
     finally:
         if log:
             log.close()
-        if s:
-            s.close()
+        if string:
+            string.close()
 
     # DEBUGGING
     print("leaving early ;-)")
     sys.exit(0)
     # END
 
-    s = None
+    string = None
     (cnx, addr) = (None, None)
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.bind(('', args.port))
-    s.listen(1)
+    string = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    string.bind(('', args.port))
+    string.listen(1)
     try:
         running = True
         while running:
-            cnx, addr = s.accept()
+            cnx, addr = string.accept()
             try:
-                acceptMsg = "CONNECTION FROM %s" % str(addr)
-                args.accessLog.log(acceptMsg)
+                accept_msg = "CONNECTION FROM %s" % str(addr)
+                args.accessLog.log(accept_msg)
                 if verbose:
-                    print(acceptMsg)
+                    print(accept_msg)
 
                 while True:
                     data = cnx.recv(PZOG_MAX_MSG)
@@ -108,28 +108,28 @@ def doWhatever(args):
                             running = False
                             break
                     else:
-                        errMsg = '%s: %s' % (addr, data)
+                        err_msg = '%s: %s' % (addr, data)
                         # XXX should log to error.log
                         break  # --+
-            except KeyboardInterrupt as ke:
+            except KeyboardInterrupt as kexc:
                 print("<keyboard interrupt received while connection open>")
                 # connection will be closed
             finally:  # <------------+
                 if cnx:
                     cnx.close()
-    except KeyboardInterrupt as ke:
+    except KeyboardInterrupt as kexc:
         print("<keyboard interrupt received while listening>")
         # listening socket will be closed
     finally:
         if cnx:
             cnx.close()
-        if s:
-            s.close()
+        if string:
+            string.close()
 
 
 def main():
 
-    pgmNameAndVersion = "psprog v%s %s" % (__version__, __version_date__)
+    pgm_name_and_version = "psprog v%s %s" % (__version__, __version_date__)
     timestamp = "%04d%02d%02d-%02d%02d%02d" % time.gmtime()[:6]
 
     # -- program defaults -------------------------------------------
@@ -145,23 +145,23 @@ def main():
 
     parser.add_argument('-i', '--interval', type=int, default=1,
                         help='interval between sends, defaults to 1')
-    parser.add_argument('-j', '--justShow', action='store_true',
+    parser.add_argument('-j', '--just_show', action='store_true',
                         help='show args and exit')
     parser.add_argument('-m', '--message', type=str,
                         help='fixed message text (default = random text)')
-    parser.add_argument('-n', '--msgCount', type=int, default=-1,
+    parser.add_argument('-n', '--msg_count', type=int, default=-1,
                         help='number of messags to send (infinity by default)')
     parser.add_argument('-p', '--port', type=int, default=PZOG_PORT,
                         help='daemon port to connect to')
     parser.add_argument('-s', '--server', type=str, default='127.0.0.1',
                         help='server to connect to, defaulting to 127.0.0.1')
-    parser.add_argument('-t', '--showTimestamp', action='store_true',
+    parser.add_argument('-t', '--show_timestamp', action='store_true',
                         help='show run timestamp')
 
     parser.add_argument('-T', '--testing', action='store_true',
                         help='test run ')
 
-    parser.add_argument('-V', '--showVersion', action='store_true',
+    parser.add_argument('-V', '--show_version', action='store_true',
                         help='show version number and date')
 
     parser.add_argument('-v', '--verbose', action='store_true',
@@ -170,52 +170,52 @@ def main():
     args = parser.parse_args()      # a Namespace object
 
     # -- fixups -----------------------------------------------------
-    if args.msgCount < 0:
-        args.msgCount = -1
-    args.pgmNameAndVersion = pgmNameAndVersion
+    if args.msg_count < 0:
+        args.msg_count = -1
+    args.pgm_name_and_version = pgm_name_and_version
     args.timestamp = timestamp
 
     # -- sanity checks ----------------------------------------------
     if args.interval <= 0:
         print("interval (in seconds) must be a positive number")
         sys.exit(1)
-    if args.port <= 0 or 65536 <= args.port:
+    if args.port <= 0 or args.port >= 65536:
         print("port '%d' is out of range" % args.port)
         sys.exit(1)
 
     # XXX logs/ must be a directory; {access,error}.log must be files
-    logDir = 'logs'
-    if not os.path.exists(logDir):
-        os.mkdir(logDir)
-    args.logDir = logDir
+    log_dir = 'logs'
+    if not os.path.exists(log_dir):
+        os.mkdir(log_dir)
+    args.log_dir = log_dir
 
     # fixups --------------------------------------------------------
-    args.pgmNameAndVersion = pgmNameAndVersion
+    args.pgm_name_and_version = pgm_name_and_version
 
     # -- do it ------------------------------------------------------
-    if args.verbose or args.showVersion or args.justShow:
-        print(args.pgmNameAndVersion)
-    if args.showTimestamp:
+    if args.verbose or args.show_version or args.just_show:
+        print(args.pgm_name_and_version)
+    if args.show_timestamp:
         print('run at %s GMT' % timestamp)   # could be prettier
     else:
         print()                               # there's a comma up there
 
-    if args.justShow or args.verbose:
+    if args.just_show or args.verbose:
         print('interval         = %d' % args.interval)
-        print('justShow         = ' + str(args.justShow))
-        print('logDir           = ' + str(args.logDir))
+        print('just_show        = ' + str(args.just_show))
+        print('log_dir          = ' + str(args.log_dir))
         print('message          = ' + str(args.message))
-        print('msgCount         = ' + str(args.msgCount))
+        print('msg_count        = ' + str(args.msg_count))
         print('port             = ' + str(args.port))
         print('server           = ' + str(args.server))
-        print('showTimestamp    = ' + str(args.showTimestamp))
-        print('showVersion      = ' + str(args.showVersion))
+        print('show_timestamp   = ' + str(args.show_timestamp))
+        print('show_version     = ' + str(args.show_version))
         print('testing          = ' + str(args.testing))
         print('timestamp        = ' + str(args.timestamp))
         print('verbose          = ' + str(args.verbose))
 
-    if not args.justShow:
-        doWhatever(args)
+    if not args.just_show:
+        do_whatever(args)
 
 if __name__ == '__main__':
     main()

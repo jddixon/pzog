@@ -1,0 +1,7 @@
+# pzog/renamePerAPI
+
+sdRenameInFiles -v1rw                   \
+    -m ../xlattice_py/name-pairs-api    \
+    -m ../nlhtree_py/name-pairs-api     \
+    -m ../buildlist/name-pairs-api      \
+    setup.py pzog/__init__.py pzogd psprog test*.py
