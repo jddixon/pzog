@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
 
 # testU.py
-import time
-import hashlib
 import os
-import sys
 import unittest
 
 
-class TestU (unittest.TestCase):
+class TestU(unittest.TestCase):
     """
     Tests an XLattice-style Node, including its sign() and verify()
     functions, using SHA1 and SHA3 (Keccak); for the latter I use a
@@ -21,7 +18,7 @@ class TestU (unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testURandom(self):
+    def test_urandom(self):
         stuff = os.urandom(256)
         print(("os.urandom() output is %s" % stuff.__class__))
 

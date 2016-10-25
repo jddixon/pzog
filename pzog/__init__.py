@@ -1,13 +1,13 @@
 # ~/dev/py/pzog/pzog/__init__.py
 
-__version__ = '0.6.2'
-__version_date__ = '2016-10-17'
+__version__ = '0.6.3'
+__version_date__ = '2016-10-25'
 
 __all__ = ['__version__', '__version_date__',
            'PZOG_MAX_MSG', 'PZOG_PORT', 'RING_IP_ADDR',
 
            # methods
-           'ringSize',
+           'ring_size',
            ]
 
 # the maximum number of bytes in a message
@@ -25,5 +25,5 @@ RING_IP_ADDR = [('losaltos', '192.168.152.253'),
 
 
 @property
-def ringSize():
+def ring_size():
     return len(RING_IP_ADDR)

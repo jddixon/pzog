@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 # ~/dev/py/pzog/pzogd
 
 import os
@@ -11,31 +10,31 @@ from argparse import ArgumentParser
 from xlattice.procLock import ProcLock
 from xlattice.ftLog import LogMgr
 
-from pzog import *
+from pzog import __version__, __version_date__, PZOG_MAX_MSG, PZOG_PORT
 
 
 # PATs AND REs ######################################################
 
-def doWhatever(args):
+def do_whatever(args):
     verbose = args.verbose
 
-    s = None
+    string = None
     (cnx, addr) = (None, None)
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.bind(('', args.port))
-    s.listen(1)
+    string = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    string.bind(('', args.port))
+    string.listen(1)
     try:
         running = True
         while running:
             print("WAITING FOR CONNECTION")              # DEBUG
-            cnx, addr = s.accept()
+            cnx, addr = string.accept()
             try:
-                acceptMsg = "CONNECTION FROM %s" % str(addr)
+                accept_msg = "CONNECTION FROM %s" % str(addr)
                 if verbose:
-                    print(acceptMsg)
-                print("BRANCH TO args.accessLog.log()")
+                    print(accept_msg)
+                print("BRANCH TO args.access_log.log()")
                 sys.stdout.flush()
-                args.accessLog.log(acceptMsg)
+                args.access_log.log(accept_msg)
                 print("BACK FROM args.access.log()")
                 sys.stdout.flush()
 
@@ -50,43 +49,43 @@ def doWhatever(args):
                         break
                     if data.endswith('\r\n'):
                         cnx.sendall('ok\r\n')
-                        args.accessLog.log(data[:-2])
+                        args.access_log.log(data[:-2])
                         if data == 'quit\r\n':
                             break
                         if data == 'shutdown\r\n':
                             running = False
                             break
                     else:
-                        errMsg = '%s: %s' % (addr, data)
+                        err_msg = '%s: %s' % (addr, data)
                         # XXX should log to error.log
                         break  # --+
-            except KeyboardInterrupt as ke:
+            except KeyboardInterrupt as kexc:
                 print("<keyboard interrupt received while connection open>")
                 # connection will be closed
             finally:  # <------------+
                 if cnx:
                     cnx.close()
-    except KeyboardInterrupt as ke:
+    except KeyboardInterrupt as kexc:
         print("<keyboard interrupt received while listening>")
         # listening socket will be closed
     finally:
         if cnx:
             cnx.close()
-        if s:
-            s.close()
+        if string:
+            string.close()
 
 
 def main():
 
-    pgmNameAndVersion = "pzogd v%s %s" % (__version__, __version_date__)
+    pgm_name_and_version = "pzogd v%s %s" % (__version__, __version_date__)
     timestamp = "%04d%02d%02d-%02d%02d%02d" % time.gmtime()[:6]
 
     # -- program defaults -------------------------------------------
 
-    with open('/etc/hostname', 'r') as f:
-        thisHost = f.read().strip()
+    with open('/etc/hostname', 'r') as file:
+        this_host = file.read().strip()
     # DEBUG
-    print("thisHost is '%s'" % thisHost)
+    print("thisHost is '%s'" % this_host)
     # END
 
     # -- check for config file --------------------------------------
@@ -98,17 +97,17 @@ def main():
     parser.add_argument('-e', '--ec2Host', action='store_true',
                         help='set if machine is in EC2')
 
-    parser.add_argument('-j', '--justShow', action='store_true',
+    parser.add_argument('-j', '--just_show', action='store_true',
                         help='show args and exit')
     parser.add_argument('-p', '--port', type=int, default=PZOG_PORT,
                         help='port to listen on')
-    parser.add_argument('-t', '--showTimestamp', action='store_true',
+    parser.add_argument('-t', '--show_timestamp', action='store_true',
                         help='show run timestamp')
 
     parser.add_argument('-T', '--testing', action='store_true',
                         help='test run - write to ./testU')
 
-    parser.add_argument('-V', '--showVersion', action='store_true',
+    parser.add_argument('-V', '--show_version', action='store_true',
                         help='show version number and date')
 
     parser.add_argument('-v', '--verbose', action='store_true',
@@ -117,75 +116,75 @@ def main():
     args = parser.parse_args()      # a Namespace object
 
     # -- fixups -----------------------------------------------------
-    args.pgmNameAndVersion = pgmNameAndVersion
+    args.pgm_name_and_version = pgm_name_and_version
     args.timestamp = timestamp
 
     # -- sanity checks ----------------------------------------------
-    if args.port <= 0 or 65536 <= args.port:
+    if args.port <= 0 or args.port >= 65536:
         print("port '%d' is out of range" % args.port)
         sys.exit(1)
 
     # XXX logs/ must be a directory; {access,error}.log must be files
-    logDir = 'logs'
-    if not os.path.exists(logDir):
-        os.mkdir(logDir)
-    args.logDir = logDir
+    log_dir = 'logs'
+    if not os.path.exists(log_dir):
+        os.mkdir(log_dir)
+    args.log_dir = log_dir
 
     # fixups --------------------------------------------------------
-    args.pgmNameAndVersion = pgmNameAndVersion
-    args.thisHost = thisHost
+    args.pgm_name_and_version = pgm_name_and_version
+    args.this_host = this_host
 
     # -- do it ------------------------------------------------------
-    if args.verbose or args.showVersion or args.justShow:
-        print(args.pgmNameAndVersion)
-    if args.showTimestamp:
+    if args.verbose or args.show_version or args.just_show:
+        print(args.pgm_name_and_version)
+    if args.show_timestamp:
         print('run at %s GMT' % timestamp)   # could be prettier
     else:
         print()                               # there's a comma up there
 
-    if args.justShow or args.verbose:
-        print('justShow         = ' + str(args.justShow))
-        print('logDir           = ' + str(args.logDir))
+    if args.just_show or args.verbose:
+        print('just_show        = ' + str(args.just_show))
+        print('log_dir          = ' + str(args.log_dir))
         print('port             = ' + str(args.port))
-        print('showTimestamp    = ' + str(args.showTimestamp))
-        print('showVersion      = ' + str(args.showVersion))
+        print('show_timestamp   = ' + str(args.show_timestamp))
+        print('show_version     = ' + str(args.show_version))
         print('testing          = ' + str(args.testing))
         print('timestamp        = ' + str(args.timestamp))
         print('verbose          = ' + str(args.verbose))
 
-    if not args.justShow:
-        lockMgr = None
-        accessLog = None
-        errorLog = None
+    if not args.just_show:
+        lock_mgr = None
+        access_log = None
+        error_log = None
         try:
-            lockMgr = ProcLock('pzogd')
-            logMgr = LogMgr(args.logDir)
-            accessLog = logMgr.open('access')
-            args.accessLog = accessLog
+            lock_mgr = ProcLock('pzogd')
+            log_mgr = LogMgr(args.log_dir)
+            access_log = log_mgr.open('access')
+            args.access_log = access_log
 #           # DEBUG -------------------------------------------------
-#           print "ACCESS LOG IS %s" % accessLog.logFileName
+#           print "ACCESS LOG IS %s" % access_log.logFileName
 #           # write to the log file causes core dump XXXXX
-#           accessLog.log("opened access log")
+#           access_log.log("opened access log")
 #           # END ---------------------------------------------------
-            errorLog = logMgr.open('error')
-            args.errorLog = errorLog
+            error_log = log_mgr.open('error')
+            args.error_log = error_log
             # DEBUG -------------------------------------------------
             print("SERVERUTIL VERSION IS %s" % serverutil.__version__)
-            print("ERROR LOG IS %s" % errorLog.logFileName)
+            print("ERROR LOG IS %s" % error_log.log_file_name)
             # write to the log file causes core dump XXXXX
-            errorLog.log("opened error log")
+            error_log.log("opened error log")
             # END ---------------------------------------------------
-            doWhatever(args)
+            do_whatever(args)
         except:
             print_exc()
             sys.exit(1)
         finally:
             # XXX better: put each of these in a try block, swallowing
             #   exceptions
-            if logMgr:
-                logMgr.close()
-            if lockMgr:
-                lockMgr.unlock()
+            if log_mgr:
+                log_mgr.close()
+            if lock_mgr:
+                lock_mgr.unlock()
 
 if __name__ == '__main__':
     main()

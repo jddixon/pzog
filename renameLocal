@@ -1,0 +1,5 @@
+# magicsack/renamePerAPI
+
+sdRenameInFiles -v1rw                   \
+    -m name-pairs-local                 \
+    setup.py pzog/__init__.py pzogd psprog test*.py

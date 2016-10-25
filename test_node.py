@@ -6,18 +6,17 @@ import hashlib
 import os
 import sys
 import unittest
-from Crypto.Hash import SHA as sha
 from Crypto.PublicKey import RSA as rsa
-from Crypto.Signature import PKCS1_v1_5 as pkcs1
+#from Crypto.Signature import PKCS1_v1_5 as pkcs1
 
-from xlattice import Q, checkUsingSHA
-from xlattice.node import AbstractNode, Node, Peer
+from xlattice import QQQ, check_using_sha
+from xlattice.node import Node
 from rnglib import SimpleRNG
 
-rng = SimpleRNG(time.time)
+RNG = SimpleRNG(time.time)
 
 
-class TestNode (unittest.TestCase):
+class TestNode(unittest.TestCase):
     """
     Tests an XLattice-style Node, including its sign() and verify()
     functions, using SHA1, SHA2(56), and SHA3
@@ -29,29 +28,31 @@ class TestNode (unittest.TestCase):
     def tearDown(self):
         pass
 
-    def checkNode(self, node, usingSHA):
+    def check_node(self, node, using_sha):
         assert node is not None
 
-        pub = node.pubKey
-        id = node.nodeID
-        if usingSHA == Q.USING_SHA1:
-            self.assertEqual(20, len(id))
-            d = hashlib.sha1()
-        elif usingSHA == Q.USING_SHA2:
-            self.assertEqual(32, len(id))
-            d = hashlib.sha256()
-        elif usingSHA == Q.USING_SHA3:
-            self.assertEqual(32, len(id))
-            d = hashlib.sha3_256()
+        pub = node.pub_key
+        id_ = node.node_id
+        # pylint: disable=redefined-variable-type
+        if using_sha == QQQ.USING_SHA1:
+            self.assertEqual(20, len(id_))
+            sha = hashlib.sha1()
+        elif using_sha == QQQ.USING_SHA2:
+            self.assertEqual(32, len(id_))
+            sha = hashlib.sha256()
+        elif using_sha == QQQ.USING_SHA3:
+            self.assertEqual(32, len(id_))
+            # pylint: disable=no-member
+            sha = hashlib.sha3_256()
 
-        d.update(pub.exportKey())
-        expectedID = d.digest()
-        self.assertEqual(expectedID, id)
+        sha.update(pub.exportKey())
+        expected_id = sha.digest()
+        self.assertEqual(expected_id, id_)
 
         # make a random array of bytes
-        count = 16 + rng.nextInt16(256)
+        count = 16 + RNG.nextInt16(256)
         msg = bytearray(count)
-        rng.nextBytes(msg)
+        RNG.nextBytes(msg)
 
         # sign it and verify that it verifies
         sig = node.sign(msg)
@@ -62,32 +63,32 @@ class TestNode (unittest.TestCase):
         self.assertFalse(node.verify(msg, sig))
 
     # ---------------------------------------------------------------
-    def doTestGenerateRSAKey(self, usingSHA):
-        n = Node(usingSHA)          # no RSA key provided, so creates one
-        self.checkNode(n, usingSHA)
+    def do_test_generated_rsa_key(self, using_sha):
+        nnn = Node(using_sha)          # no RSA key provided, so creates one
+        self.check_node(nnn, using_sha)
 
-    def testGeneratedRSAKey(self):
-        for using in [Q.USING_SHA1, Q.USING_SHA2, Q.USING_SHA3, ]:
-            self.doTestGenerateRSAKey(using)
+    def test_generated_rsa_key(self):
+        for using in [QQQ.USING_SHA1, QQQ.USING_SHA2, QQQ.USING_SHA3, ]:
+            self.do_test_generated_rsa_key(using)
 
     # ---------------------------------------------------------------
-    def doTestWithOpenSSLKey(self, usingSHA):
+    def do_test_with_openssl_key(self, using_sha):
 
-        checkUsingSHA(usingSHA)
+        check_using_sha(using_sha)
 
         # import an openSSL-generated 2048-bit key (this becomes a
         # string constant in this program)
-        with open('openssl2k.pem', 'r') as f:
-            pemKey = f.read()
-        key = rsa.importKey(pemKey)
+        with open('openssl2k.pem', 'r') as file:
+            pem_key = file.read()
+        key = rsa.importKey(pem_key)
         assert key is not None
         self.assertTrue(key.has_private())
-        n = Node(usingSHA, key)
-        self.checkNode(n, usingSHA)
+        nnn = Node(using_sha, key)
+        self.check_node(nnn, using_sha)
 
         # The _RSAobj.publickey() returns a raw key.
         self.assertEqual(key.publickey().exportKey(),
-                         n.pubKey.exportKey())
+                         nnn.pub_key.exportKey())
 
         # -----------------------------------------------------------
         # CLEAN THIS UP: node.key and node.pubKey should return
@@ -95,9 +96,9 @@ class TestNode (unittest.TestCase):
         # be binary
         # -----------------------------------------------------------
 
-    def testWithOpenSSLKey(self):
-        for using in [Q.USING_SHA1, Q.USING_SHA2, Q.USING_SHA3, ]:
-            self.doTestWithOpenSSLKey(using)
+    def test_with_open_ssl_key(self):
+        for using in [QQQ.USING_SHA1, QQQ.USING_SHA2, QQQ.USING_SHA3, ]:
+            self.do_test_with_openssl_key(using)
 
 if __name__ == '__main__':
     unittest.main()
