@@ -5,11 +5,12 @@ import os
 import sys
 import time
 import socket
+import traceback
 from argparse import ArgumentParser
 
 from xlattice.procLock import ProcLock
 from xlattice.ftLog import LogMgr
-
+from optionz import dump_options
 from pzog import __version__, __version_date__, PZOG_MAX_MSG, PZOG_PORT
 
 
@@ -18,16 +19,16 @@ from pzog import __version__, __version_date__, PZOG_MAX_MSG, PZOG_PORT
 def do_whatever(args):
     verbose = args.verbose
 
-    string = None
+    skt = None
     (cnx, addr) = (None, None)
-    string = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    string.bind(('', args.port))
-    string.listen(1)
+    skt = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    skt.bind(('', args.port))
+    skt.listen(1)
     try:
         running = True
         while running:
             print("WAITING FOR CONNECTION")              # DEBUG
-            cnx, addr = string.accept()
+            cnx, addr = skt.accept()
             try:
                 accept_msg = "CONNECTION FROM %s" % str(addr)
                 if verbose:
@@ -71,8 +72,8 @@ def do_whatever(args):
     finally:
         if cnx:
             cnx.close()
-        if string:
-            string.close()
+        if skt:
+            skt.close()
 
 
 def main():
@@ -143,14 +144,7 @@ def main():
         print()                               # there's a comma up there
 
     if args.just_show or args.verbose:
-        print('just_show        = ' + str(args.just_show))
-        print('log_dir          = ' + str(args.log_dir))
-        print('port             = ' + str(args.port))
-        print('show_timestamp   = ' + str(args.show_timestamp))
-        print('show_version     = ' + str(args.show_version))
-        print('testing          = ' + str(args.testing))
-        print('timestamp        = ' + str(args.timestamp))
-        print('verbose          = ' + str(args.verbose))
+        dump_options(args)
 
     if not args.just_show:
         lock_mgr = None
@@ -169,14 +163,15 @@ def main():
             error_log = log_mgr.open('error')
             args.error_log = error_log
             # DEBUG -------------------------------------------------
-            print("SERVERUTIL VERSION IS %s" % serverutil.__version__)
-            print("ERROR LOG IS %s" % error_log.log_file_name)
+            # pylint can't find the ActualLog property log_file
+            # pylint:disable=no-member
+            print("ERROR LOG IS %s" % error_log.log_file)
             # write to the log file causes core dump XXXXX
             error_log.log("opened error log")
             # END ---------------------------------------------------
             do_whatever(args)
         except:
-            print_exc()
+            traceback.print_exc()
             sys.exit(1)
         finally:
             # XXX better: put each of these in a try block, swallowing

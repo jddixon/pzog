@@ -12,7 +12,6 @@ import socket
 from argparse import ArgumentParser
 
 import rnglib
-import serverutil
 from pzog import __version__, __version_date__, PZOG_PORT, PZOG_MAX_MSG
 
 
@@ -25,9 +24,9 @@ def fmt_for_log(msg):
     return '%s %s %s' % (date, hours, msg)
 
 
-def send_msg(string, text):
-    string.sendall(text)
-    reply = string.recv(1024)
+def send_msg(skt, text):
+    skt.sendall(text)
+    reply = skt.recv(1024)
     # the reply should always be 'ok' XXX
     print("DEBUG: send_msg gets reply '%s'" % str(reply))
 
@@ -41,7 +40,7 @@ def do_whatever(args):
 
     pathToLog = os.path.join(args.log_dir, 'sprog.log')
     log = None
-    string = None
+    skt = None
     try:
         if os.path.exists(pathToLog):
             log = open(pathToLog, 'aVal')
@@ -49,10 +48,10 @@ def do_whatever(args):
             log = open(pathToLog, 'w')
         log.write(fmt_for_log('start sprog run') + '\n')
 
-        string = None
+        skt = None
         (cnx, addr) = (None, None)
-        string = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        string.connect((args.server, args.port))
+        skt = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        skt.connect((args.server, args.port))
         nnn = msg_count
         while nnn != 0:           # loops forever if n < 0
             if message:
@@ -60,35 +59,35 @@ def do_whatever(args):
             else:
                 text = fmt_for_log(rng.nextFileName(16))
 
-            send_msg(string, text)
+            send_msg(skt, text)
             print(text)      # HACK
             log.write(fmt_for_log(text) + '\n')
 
             time.sleep(delta_t)
             nnn -= 1
-        send_msg(string, 'quit')
+        send_msg(skt, 'quit')
         log.write(fmt_for_log('end sprog run') + '\n')
 
     finally:
         if log:
             log.close()
-        if string:
-            string.close()
+        if skt:
+            skt.close()
 
     # DEBUGGING
     print("leaving early ;-)")
     sys.exit(0)
     # END
 
-    string = None
+    skt = None
     (cnx, addr) = (None, None)
-    string = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    string.bind(('', args.port))
-    string.listen(1)
+    skt = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    skt.bind(('', args.port))
+    skt.listen(1)
     try:
         running = True
         while running:
-            cnx, addr = string.accept()
+            cnx, addr = skt.accept()
             try:
                 accept_msg = "CONNECTION FROM %s" % str(addr)
                 args.accessLog.log(accept_msg)
@@ -123,8 +122,8 @@ def do_whatever(args):
     finally:
         if cnx:
             cnx.close()
-        if string:
-            string.close()
+        if skt:
+            skt.close()
 
 
 def main():

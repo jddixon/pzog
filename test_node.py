@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
-
 # testNode.py
+
+""" Test an XLattice-style Node. """
+
 import time
 import hashlib
-import os
-import sys
+#import os
+#import sys
 import unittest
 from Crypto.PublicKey import RSA as rsa
 #from Crypto.Signature import PKCS1_v1_5 as pkcs1
 
-from xlattice import QQQ, check_using_sha
+from xlattice import HashTypes, check_hashtype
 from xlattice.node import Node
 from rnglib import SimpleRNG
 
@@ -28,19 +30,22 @@ class TestNode(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def check_node(self, node, using_sha):
+    def check_node(self, node, hashtype):
+        """
+        Verify that the basic capabilities of an XLattice Node are present.
+        """
         assert node is not None
 
         pub = node.pub_key
         id_ = node.node_id
         # pylint: disable=redefined-variable-type
-        if using_sha == QQQ.USING_SHA1:
+        if hashtype == HashTypes.SHA1:
             self.assertEqual(20, len(id_))
             sha = hashlib.sha1()
-        elif using_sha == QQQ.USING_SHA2:
+        elif hashtype == HashTypes.SHA2:
             self.assertEqual(32, len(id_))
             sha = hashlib.sha256()
-        elif using_sha == QQQ.USING_SHA3:
+        elif hashtype == HashTypes.SHA3:
             self.assertEqual(32, len(id_))
             # pylint: disable=no-member
             sha = hashlib.sha3_256()
@@ -50,9 +55,9 @@ class TestNode(unittest.TestCase):
         self.assertEqual(expected_id, id_)
 
         # make a random array of bytes
-        count = 16 + RNG.nextInt16(256)
+        count = 16 + RNG.next_int16(256)
         msg = bytearray(count)
-        RNG.nextBytes(msg)
+        RNG.next_bytes(msg)
 
         # sign it and verify that it verifies
         sig = node.sign(msg)
@@ -63,18 +68,22 @@ class TestNode(unittest.TestCase):
         self.assertFalse(node.verify(msg, sig))
 
     # ---------------------------------------------------------------
-    def do_test_generated_rsa_key(self, using_sha):
-        nnn = Node(using_sha)          # no RSA key provided, so creates one
-        self.check_node(nnn, using_sha)
+    def do_test_generated_rsa_key(self, hashtype):
+        """ Run tests on a generated Node for a specific hashtype. """
+
+        node = Node(hashtype)          # no RSA key provided, so creates one
+        self.check_node(node, hashtype)
 
     def test_generated_rsa_key(self):
-        for using in [QQQ.USING_SHA1, QQQ.USING_SHA2, QQQ.USING_SHA3, ]:
-            self.do_test_generated_rsa_key(using)
+        """ Run basic tests for all supported hash types. """
+        for hashtype in HashTypes:
+            self.do_test_generated_rsa_key(hashtype)
 
     # ---------------------------------------------------------------
-    def do_test_with_openssl_key(self, using_sha):
+    def do_test_with_openssl_key(self, hashtype):
+        """ Run tests using an OpenSSL key for the specified hashtypes. """
 
-        check_using_sha(using_sha)
+        check_hashtype(hashtype)
 
         # import an openSSL-generated 2048-bit key (this becomes a
         # string constant in this program)
@@ -83,12 +92,12 @@ class TestNode(unittest.TestCase):
         key = rsa.importKey(pem_key)
         assert key is not None
         self.assertTrue(key.has_private())
-        nnn = Node(using_sha, key)
-        self.check_node(nnn, using_sha)
+        node = Node(hashtype, key)
+        self.check_node(node, hashtype)
 
         # The _RSAobj.publickey() returns a raw key.
         self.assertEqual(key.publickey().exportKey(),
-                         nnn.pub_key.exportKey())
+                         node.pub_key.exportKey())
 
         # -----------------------------------------------------------
         # CLEAN THIS UP: node.key and node.pubKey should return
@@ -97,8 +106,9 @@ class TestNode(unittest.TestCase):
         # -----------------------------------------------------------
 
     def test_with_open_ssl_key(self):
-        for using in [QQQ.USING_SHA1, QQQ.USING_SHA2, QQQ.USING_SHA3, ]:
-            self.do_test_with_openssl_key(using)
+        """ Run tests using an OpenSSL key for all supported hashtypes. """
+        for hashtype in HashTypes:
+            self.do_test_with_openssl_key(hashtype)
 
 if __name__ == '__main__':
     unittest.main()
