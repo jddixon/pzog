@@ -10,4 +10,4 @@ nosetests \
     --cover-branches \
     --cover-inclusive  \
     --cover-package=pzog    \
-    test*.py 
+    test*.py
