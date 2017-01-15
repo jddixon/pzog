@@ -9,8 +9,7 @@
 </head>
 <body>
 <div class="content">
-<h1>
-<a id="user-content-daemon-spec" class="anchor" href="#daemon-spec" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>daemon-spec</h1>
+<h1 class="libTop">daemon-spec</h1>
 
 <p>This is a brief description of a Python 3 wrapper for modules that
 allows them to be run as a proper daemon.  Initially at least this
@@ -24,27 +23,24 @@ its <code>DaemonContext</code>.</p>
 package is called <code>zDaemon</code> and that there is a companiion locking
 facility <code>zLocks</code> which is expected to be a separate module.</p>
 
-<h2>
-<a id="user-content-daemonization-candidates" class="anchor" href="#daemonization-candidates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Daemonization Candidates</h2>
+<h2>Daemonization Candidates</h2>
 
 <p>We assume that any program to be daemonized using this module will</p>
 
 <ul>
-<li>accept options through <code>sys.argv</code>
-</li>
+<li>accept options through <code>sys.argv</code></li>
 <li>expect to store and retrieve files through paths relative to its
 current directory</li>
 </ul>
 
-<h2>
-<a id="user-content-expected-implementation-style" class="anchor" href="#expected-implementation-style" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Expected Implementation Style</h2>
+<h2>Expected Implementation Style</h2>
 
 <p>Call the program to be daemonized <code>Candidate</code>.  Typically this will
 be packaged as a separate module, perhaps <code>candidate.py</code>.  This should
 have a conventional Python entry point <code>main()</code>, so that the last two
 lines of <code>candidate.py</code> are</p>
 
-<pre><code>if _name__ == '__main__':
+<pre><code>if _name__ == &#39;__main__&#39;:
     main()
 </code></pre>
 
