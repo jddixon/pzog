@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>daemon-spec</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="css/ghp.css" />
+</head>
+<body>
+<div class="content">
+<h1>
+<a id="user-content-daemon-spec" class="anchor" href="#daemon-spec" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>daemon-spec</h1>
+
+<p>This is a brief description of a Python 3 wrapper for modules that
+allows them to be run as a proper daemon.  Initially at least this
+capability will be confined to Linux systms and possibly only to
+Debian and Ubuntu distributions.</p>
+
+<p>Tenatively this behavior will be built on top of <code>python-daemon</code> and
+its <code>DaemonContext</code>.</p>
+
+<p>For the purposes of this document we will assume that the daemon
+package is called <code>zDaemon</code> and that there is a companiion locking
+facility <code>zLocks</code> which is expected to be a separate module.</p>
+
+<h2>
+<a id="user-content-daemonization-candidates" class="anchor" href="#daemonization-candidates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Daemonization Candidates</h2>
+
+<p>We assume that any program to be daemonized using this module will</p>
+
+<ul>
+<li>accept options through <code>sys.argv</code>
+</li>
+<li>expect to store and retrieve files through paths relative to its
+current directory</li>
+</ul>
+
+<h2>
+<a id="user-content-expected-implementation-style" class="anchor" href="#expected-implementation-style" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Expected Implementation Style</h2>
+
+<p>Call the program to be daemonized <code>Candidate</code>.  Typically this will
+be packaged as a separate module, perhaps <code>candidate.py</code>.  This should
+have a conventional Python entry point <code>main()</code>, so that the last two
+lines of <code>candidate.py</code> are</p>
+
+<pre><code>if _name__ == '__main__':
+    main()
+</code></pre>
+
+<p>Then the program can be run as a standalone script using</p>
+
+<pre><code>PATH_TO_SCRIPT/candidate/main() ARGV
+</code></pre>
+
+<p>where ARGV represents the usual sequence of arguments passed through
+<code>sys.argv</code>.</p>
+
+<p><code>zDaemon</code> is invoked similarl</p>
+
+<pre><code>zDaemon ARGV
+</code></pre>
+
+<p>with the understanding that <code>zDaemon</code> will consume at least some of the
+leading arguments, stripping them off before passing the remaining
+arguments to the candidate.</p>
+
+<p>This allows the candidate program to be thoroughly tested independently
+of <code>zDaemon</code>.</p>
+  <div class="f">
+    <hr />
+    <div class="license">
+      <p><a href="LICENSE-MIT.html">SOFTWARE LICENSE</a></p>
+    </div>
+    <div class="project">
+      github <a href="https://github.com/jddixon/daemon-spec">      <img src="img/GitHub-Mark-32px.png" 
+        alt="link to project"  
+        style="display: inline-block; margin-left: 0 auto; margin-right: 0 auto">
+       </a> project
+    </div>
+    <div class="logo" >
+      <a href="https://jddixon.github.io/xlattice/">
+      <img src="img/xlattice-2014.jpg" alt="the XLattice Project" style="float: right;" >
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
