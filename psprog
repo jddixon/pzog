@@ -11,6 +11,7 @@ import time
 import socket
 from argparse import ArgumentParser
 
+from optionz import dump_options
 import rnglib
 from pzog import __version__, __version_date__, PZOG_PORT, PZOG_MAX_MSG
 
@@ -38,14 +39,14 @@ def do_whatever(args):
     msg_count = args.msg_count
     verbose = args.verbose
 
-    pathToLog = os.path.join(args.log_dir, 'sprog.log')
+    path_to_log = os.path.join(args.log_dir, 'sprog.log')
     log = None
     skt = None
     try:
-        if os.path.exists(pathToLog):
-            log = open(pathToLog, 'aVal')
+        if os.path.exists(path_to_log):
+            log = open(path_to_log, 'a')
         else:
-            log = open(pathToLog, 'w')
+            log = open(path_to_log, 'w')
         log.write(fmt_for_log('start sprog run') + '\n')
 
         skt = None
@@ -110,13 +111,13 @@ def do_whatever(args):
                         err_msg = '%s: %s' % (addr, data)
                         # XXX should log to error.log
                         break  # --+
-            except KeyboardInterrupt as kexc:
+            except KeyboardInterrupt:
                 print("<keyboard interrupt received while connection open>")
                 # connection will be closed
             finally:  # <------------+
                 if cnx:
                     cnx.close()
-    except KeyboardInterrupt as kexc:
+    except KeyboardInterrupt:
         print("<keyboard interrupt received while listening>")
         # listening socket will be closed
     finally:
@@ -200,19 +201,7 @@ def main():
         print()                               # there's a comma up there
 
     if args.just_show or args.verbose:
-        print('interval         = %d' % args.interval)
-        print('just_show        = ' + str(args.just_show))
-        print('log_dir          = ' + str(args.log_dir))
-        print('message          = ' + str(args.message))
-        print('msg_count        = ' + str(args.msg_count))
-        print('port             = ' + str(args.port))
-        print('server           = ' + str(args.server))
-        print('show_timestamp   = ' + str(args.show_timestamp))
-        print('show_version     = ' + str(args.show_version))
-        print('testing          = ' + str(args.testing))
-        print('timestamp        = ' + str(args.timestamp))
-        print('verbose          = ' + str(args.verbose))
-
+        print(dump_options(args))
     if not args.just_show:
         do_whatever(args)
 

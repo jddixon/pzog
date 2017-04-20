@@ -1,63 +1,36 @@
 -----BEGIN RSA PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoM2sBgX0ChP2JriXkOxS
-e2FjHYVzBGkNvgf0vIAa7FFYZi2pWmxBAVXgl3tTiB3quqqud/MbKqdejM6gkKBK
-v8f7hlcBQLD6BLIZ/RRfhIElc+WlDVfKSnBTB4va5qTQAgvuq5i8+oMj7G8WEy5d
-7cYucWyUJMtHvT4pCDtBWeeqQ62tByWjv34Ud/+A9Mjf0leiWxM3tiToVsqIKb4s
-zPjEShF9rvcNa9XEy1dKpcDz9Szbm2SlxOgM83fDDGtOq4SSCSqndtxrOvXXPB57
-H1mJV/FmerbXRPm5ERJVNIxtLk7Gr2Ce45FVlWyJGMhpfVlKkkk+bRQ02OFfazJI
-GQIDAQAB
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl9xsFHvzEsi3G8q8dUOM
+3v4WLJefw8Kv0hHBGFPFQF1WRPldwPGNdVKql8zcO52KO4hzFNHNSBCGgH8cbtAk
+mLWB78ackABFJzhY9TEbPkLnoMXJHAXQpZK/JAudSixuAZIXYtIyBWfgLaHjurAT
+6+DBgC1oQXNrfT4Fvpe1QbHMejjGb41v/r/8ck/dWDr1YzcRFIbiJPj+sQq+X0Uy
+Giaje1YAJPNVBt3dlOA5lhBp4GpSYBskJ9UR2Zyt3lgAGK3dEwxYETLMh9VWEV8i
+k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
+/QIDAQAB
 -----END RSA PUBLIC KEY-----
-pzog v0.6.3
-2016-10-25 21:44:25
+pzog v0.6.5
+2017-04-20 22:36:29
 # BEGIN CONTENT #
 pzog
  .dvcz
-  builds d2e616f9d0d408f8c2e40157fe12dcd5de62b22b
-  copyright 40a152c0598a7da436fc48b2286fb14b4f2e9101
-  lastBuildList 221dfc36e1b7b261104fdcad017aa4feb656013a
+  builds 7bedbdae905aa6806a49b107c004b25dc1fcf125
+  copyright 081f1eacc7bee6ce9cf06ffc957c1472faf9c994
+  lastBuildList 93244fcaf394daf81c9cf1392b35c49a924118ab
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
   projCfg 07b1cea5c718f49eab48bf6b6937873be086cbe9
   projCfg.local 9730c32843520d2d486cf6b6940a6c905608112d
-  version 8ca6323a6cfbdaa8be3150f01d85dc69b8020eae
- .gitignore 45603d33996e13b696aa167013c74157d0b138e9
+  version aa69fc8c87cf1dfe77b0f6700c333ab4d8870f20
+ .gitignore e3b7cee5122fd863966c063f273fd9a1c25c9e5a
  .gitignore.local f882197ec330edd8519e7f620df4e7e9588c2b6c
- CHANGES 4afcc42ca8ae46e389318d0364d6765329af3271
+ CHANGES 17c81389c108730b19a6ff6971abaf97d7a47493
  LICENSE-MIT.md 7ff8ae89c5e4489f22b3a360a03225241877bc8d
  MANIFEST.in 60c1295aaebc894cd93d0a521c931c79569a4667
- README a5b81fc497558ff830ab89b3507aafb1e78bc8d1
- README.md 0f67aa1bcd61112036f10dad9e21425a5944d89f
- TODO 5a00e111d6bd9a376b794fb833764349dc9f3f71
- bkp2U 4dd724c713ca970a69e3ddbf131207a0ed9e7ea8
- checkCoverage 97b1dd56f5cdc419fa111dc36b4ddd8b4e13fe9f
- countem b154b53af957668515f94db42ca1c3156d009f2e
+ README 9111c5edc6b8258c17b4d7ea16bf5b641b7a23f2
+ README.md a6f432c71c75a26e4b202f5fefce99e21b7f2e4d
+ TODO 68f0e29dcbf62b5ad99c98e0a17be879c77e0b61
+ bkp2U d8e6cfe6369218513971a3f878b578681f904523
+ checkCoverage 6883bb30bf79ddd382fe9ebcef2966d9db68c4db
+ countem 1a70c59b4788ee398e1d8b24cd0411470e174022
  crypto.jdd 699c6f6b8ed4efcb663f0cf4a0178dd259e4ba78
- dist
-  pzog-0.2.1.tar.gz 7217e50d67a22fb47a061ea8706f6fd61442074a
-  pzog-0.2.2.tar.gz 059b2d28b21137f8934ba75c47b7dff7dc8e0450
-  pzog-0.2.3.tar.gz 2b99c05ed4526aab5bf87aad6630c1e7ad8653f7
-  pzog-0.2.4.tar.gz 2211bc6a80983496bd93647a667a0cb924496bcc
-  pzog-0.2.5.tar.gz fa554735a273c2a76d6309a701865dd9f787a8b9
-  pzog-0.2.6.tar.gz faba673ea98a07bb001ec84adfa8824b83a1356f
-  pzog-0.2.7.tar.gz 2312f9613f81a3a5c1356d54280a1d3609b2bc36
-  pzog-0.2.8.tar.gz b5423af19e77999c13ed4e5dd8b4f46bd7ae1f86
-  pzog-0.3.0.tar.gz feb89e5aafc0040d1938dcc9b4ebc708d98acba8
-  pzog-0.3.1.tar.gz c903b44aa237cb7c5ce666ee647d6b500ceecd9c
-  pzog-0.3.2.tar.gz 80ee236f9c1c38230b0b614d7b78126f701c0d4e
-  pzog-0.4.0.tar.gz 93ab6fb23392d4518d600f360be4bedd16f82edf
-  pzog-0.4.1.tar.gz 37bce56f06be54bda8938de12ed4cc08c7d193a6
-  pzog-0.4.2.tar.gz a0774702a0247c59c7c9883998ad87b59078b1be
-  pzog-0.4.3.tar.gz 6ecb76d4c90780e8b56a111be1d02ec697a1feab
-  pzog-0.5.0.tar.gz 5c8b94173a9b22d77f9a47a481b35d0ff8f87837
-  pzog-0.5.1.tar.gz 7f793e4b67ddbad112d8f1857555cf89293c4a1c
-  pzog-0.5.2.tar.gz 21490deb641fe8e9d2746cd186452a8f0f5857ff
-  pzog-0.5.3.tar.gz daa4b804acae84a37065d4950d7aa2260ceb7422
-  pzog-0.5.4.tar.gz 6859bc89cad0e926cf7db9f299d55828930fd62c
-  pzog-0.5.5.tar.gz 0e5cc7b525923f925c435456ccf9de2022a77faf
-  pzog-0.5.6.tar.gz 50bcbffb8830f030eb95486cc01b2415b98bed87
-  pzog-0.6.0.tar.gz b8f6af2500062bc099afaa50cc4acf89ea94cf9f
-  pzog-0.6.1.tar.gz b66679acf05300621c386de27c524476c43b12bb
-  pzog-0.6.2.tar.gz d29a01da0f13cc8c970e4a124e0743c0a0b9e0a1
-  pzog-0.6.3.tar.gz 5e539dd0c70c6fb39f0926337cabf839e13f66f2
  doPyLint b28672a1fefb80fcb92020198af78325380ff058
  ghpDoc
   css
@@ -75,7 +48,7 @@ pzog
    simple-cluster.jpg 6b223ddd25937c1ef75ef328f36fc3436f10bd62
    xl-registration.jpg 15cbf951f9db173a45428b32dcec87aca83bbdf0
    xlattice-2014.jpg f185aaad06db71acd9454f31054c62c56d36f37f
-  index.md 0ded287d7a8afb0fa960a48ced06fb59ae437fcf
+  index.md facad68666287f6e42a66cb2ca38e4ba96303b47
  installit 1e9a9526c7ca00e6085d46311dd308378ffc2342
  logs
   access.log becb1d87b6014651a719445ed6e6a40ba43cfebc
@@ -83,20 +56,22 @@ pzog
  name-pairs-local d696b9af2ab74497f5f502258970cd63607dc848
  openssl2k.pem d002cf0d15dde3bb0387f201d36ee0d9b8389035
  openssl4k.pem 6f8e9af343875a978df27cc25dcf1f637ec8626e
- psprog e199165e8967c52cccfd8c5e26367fc6653fec15
+ psprog 475948dbc08f2f28bfbbb0f8368f69ad9c0ec11e
  pylintrc dd234fda24a547a9071f1e4608a3c1f3b7de9aa0
  pzog
-  __init__.py 78e3650ac3d4607dee5502f9534842a874ebfbdf
- pzogd c3520ed8e0cd75f81dc6c890adfe2db383e5752a
+  __init__.py 8d172aa1b9ce7578604382b0b9cdda812b165842
+ pzogd ca491d583c8c6dc553309d0638e45ab663405af4
  renameLocal 6bfd7e171a5f862450c500ef8fae95670ec83137
  renamePerAPI 07bee3b63adee924c0cae9893646cb927803a909
+ ringData.xlgo a6e0fb16eb6fa0ba3600dffa7a372b52f6bdf926
+ ringDataGen df206da1278840787a26f4b850a3816297bb7106
  ring_data.xlgo a6e0fb16eb6fa0ba3600dffa7a372b52f6bdf926
  ring_data_gen df206da1278840787a26f4b850a3816297bb7106
  setup.py 78f9efe8e8624edcedca2e4097b8b8a6ce891191
  styleit cb4b8aa871130f86b3a68f3af25bf4902a07d052
  test.all 982856314cdb358318f10e008a693db43a461697
- test_node.py 6c9a9dfbd338f92f94e44fecda4e5af31cb60a6b
+ test_node.py 46eab2a1c4aa1971bc85a95c13427720a82ef1b6
  test_u.py 402d06e716888b8bad218de1fc5e020c81b507af
 # END CONTENT #
 
-VMvES/LlQFmgS5pemnHlbGJOnFEEWT3h7M40H1zfIam9OqfwP+WzD524ql4nU+A4mASfB6cDgVTVH75srgF13iWNL0T6BFiheSPIbh5F2erJWeS1s7Nnqhbt05/DAJGyzTFusGbcZwCplJs/IXp0DRq777ErSie7hNA1hsRldm+4KtH5eSXDuEZhJewl+tCXh5ztt6GALFHanrTdii5OIqWE5n+TCsLHKXEXahCMYcnChAss/m/cny6cnpiXie4f1ysI5bpPgF/nb6MpmqLzuFnIX5Bt6ryU95Wug/lwz7ZK+9/Ip+TavDcmnkedkmjYIEoKIHj2DNsyW3zoSDH7tQ==
+ll2qDylKJP5PE1uMny2ro17qEUcNjl7GX34xvkAxJxgjTvtcPC91y7PMxr6eMtTaF/M8b8wnSWsjz/Zcp7Bc2nlJS2c2L0360eGAquXJig0P+Qao/H3TnkBOExtin17G2D3shxVjzVtCTtklz6s823FBkD3lnFZYWL20qR9Eeq121gwx8EGpVNtcDY3ZM9wqhPbeZFYOz5KGS4oOJImXzkUJ9JSiYH29f9MzxcG0QdCwzwN0yIjeeGJrX1Va+Q8SBlxrNzupwwIF6TreOQgb3Lr7N4Mq4ywAIYNTQl7/KpNStfdB5jiDrn8Bfr8eU07IGGMPP9vWAmmMlfbRy2qA9g==
