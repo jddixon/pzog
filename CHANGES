@@ -1,5 +1,10 @@
 ~/dev/py/pzog/CHANGES
 
+v0.6.5
+    2017-04-20
+        * drop dist/* from repo; edit README.md                     SLOC 1287
+    2017-01-28
+        * simplify by adding optionz.dump_options                   SLOC 1127
 v0.6.4
     2017-01-14
         * mods to fit new xlattice_py API; minor bug fixes          SLOC 1137
@@ -145,6 +150,7 @@ v0.1
             - bad messages cause the connection to be closed            * ???
         * a keyboard interrupt (ctrl-C) causes pzogd to shut down
             in an orderly fashion
+
 
 
 
