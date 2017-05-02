@@ -60,13 +60,13 @@ def do_whatever(args):
                         err_msg = '%s: %s' % (addr, data)
                         # XXX should log to error.log
                         break  # --+
-            except KeyboardInterrupt as kexc:
+            except KeyboardInterrupt:
                 print("<keyboard interrupt received while connection open>")
                 # connection will be closed
             finally:  # <------------+
                 if cnx:
                     cnx.close()
-    except KeyboardInterrupt as kexc:
+    except KeyboardInterrupt:
         print("<keyboard interrupt received while listening>")
         # listening socket will be closed
     finally:
@@ -170,7 +170,7 @@ def main():
             error_log.log("opened error log")
             # END ---------------------------------------------------
             do_whatever(args)
-        except:
+        except BaseException:
             traceback.print_exc()
             sys.exit(1)
         finally:
@@ -180,6 +180,7 @@ def main():
                 log_mgr.close()
             if lock_mgr:
                 lock_mgr.unlock()
+
 
 if __name__ == '__main__':
     main()

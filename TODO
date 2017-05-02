@@ -1,9 +1,9 @@
 ~/dev/py/pzog/TODO
 
 2016-09-01
-    * complete conversion to usingSHA and from xlattice import Q and
-        the use of Q.USING_SHAx where x is in {1,2,3}
-        - needs a step to next version of xlattice_py
+    * complete conversion to usingSHA and from xlattice import Q and    * DONE
+        the use of Q.USING_SHAx where x is in {1,2,3}                   * DONE
+        - needs a step to next version of xlattice_py                   * DONE
 
 2016-07-26
     * testU.py is a stub: write some code
