@@ -6,7 +6,8 @@ then
   
   rm -rf build/* 
   
-  pySloc -L py psprog pzogd ring_data_gen  -X cover -X htmlcov -X dist -X limbo -v $@
+  pySloc -L py src/psprog src/pzog tests/*.pem tests/*.xlgo tests/*.py \
+      -X cover -X htmlcov -X dist -X limbo -v $@
 else
   echo "DEV_BASE is not defined"
 fi

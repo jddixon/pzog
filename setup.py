@@ -5,7 +5,7 @@
 import re
 from distutils.core import setup
 __version__ = re.search(r"__version__\s*=\s*'(.*)'",
-                        open('pzog/__init__.py').read()).group(1)
+                        open('src/pzog/__init__.py').read()).group(1)
 
 # see http://docs.python.org/distutils/setupscript.html
 
@@ -19,10 +19,10 @@ setup(name='pzog',
       py_modules=[],
       #
       # a package has a subdir and an __init__.py
-      packages=['pzog', ],
+      packages=['src/pzog', ],
       #
       # following could be in scripts/ subdir; SQuote
-      scripts=['psprog', 'pzogd', 'ring_data_gen'],
+      scripts=['src/psprog', 'src/pzogd', 'src/ring_data_gen'],
       description='software organizing a ring of 5-6 machines sharing data over a full mesh',
       url='https://jddixon.github.io/pzog',
       classifiers=[

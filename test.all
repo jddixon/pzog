@@ -3,9 +3,8 @@
 if [ ! -z "${DEV_BASE// }" ]
 then
   cd $DEV_BASE/py/pzog
-  
-  ./test_node.py
-  ./test_u.py
+ 
+  pytest
   
 else
   echo "DEV_BASE is not defined"

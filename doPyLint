@@ -1,4 +1,4 @@
-pylint setup.py pzog    \
-    pzogd psprog         \
-    test*.py
+pylint setup.py src/pzog    \
+    src/pzogd src/psprog         \
+    tests/test*.py
 

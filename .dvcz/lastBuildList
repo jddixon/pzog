@@ -1,4 +1,4 @@
------BEGIN RSA PUBLIC KEY-----
+-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl9xsFHvzEsi3G8q8dUOM
 3v4WLJefw8Kv0hHBGFPFQF1WRPldwPGNdVKql8zcO52KO4hzFNHNSBCGgH8cbtAk
 mLWB78ackABFJzhY9TEbPkLnoMXJHAXQpZK/JAudSixuAZIXYtIyBWfgLaHjurAT
@@ -6,32 +6,36 @@ mLWB78ackABFJzhY9TEbPkLnoMXJHAXQpZK/JAudSixuAZIXYtIyBWfgLaHjurAT
 Giaje1YAJPNVBt3dlOA5lhBp4GpSYBskJ9UR2Zyt3lgAGK3dEwxYETLMh9VWEV8i
 k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
 /QIDAQAB
------END RSA PUBLIC KEY-----
-pzog v0.6.5
-2017-04-20 22:36:29
+-----END PUBLIC KEY-----
+pzog v0.6.6
+2017-06-20 19:40:48
 # BEGIN CONTENT #
 pzog
+ .cache
+  v
+   cache
+    lastfailed 36e10b6355e1aa37c4d23b1c0c782c494da897dd
  .dvcz
-  builds 7bedbdae905aa6806a49b107c004b25dc1fcf125
+  builds ab4736235d74e8e1d51cbcd61b0e2edecccdc7b5
   copyright 081f1eacc7bee6ce9cf06ffc957c1472faf9c994
-  lastBuildList 93244fcaf394daf81c9cf1392b35c49a924118ab
+  lastBuildList b9da9008d012f0a592c83ccc207bbe73d5c304be
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
   projCfg 07b1cea5c718f49eab48bf6b6937873be086cbe9
   projCfg.local 9730c32843520d2d486cf6b6940a6c905608112d
-  version aa69fc8c87cf1dfe77b0f6700c333ab4d8870f20
+  version 44d1ca29cf2a938ec1adb270a35380cf8f6b8490
  .gitignore e3b7cee5122fd863966c063f273fd9a1c25c9e5a
  .gitignore.local f882197ec330edd8519e7f620df4e7e9588c2b6c
- CHANGES 17c81389c108730b19a6ff6971abaf97d7a47493
+ CHANGES 04a03fa2b83c772a67935e977238986a8e8f2a94
  LICENSE-MIT.md 7ff8ae89c5e4489f22b3a360a03225241877bc8d
  MANIFEST.in 60c1295aaebc894cd93d0a521c931c79569a4667
- README 9111c5edc6b8258c17b4d7ea16bf5b641b7a23f2
- README.md a6f432c71c75a26e4b202f5fefce99e21b7f2e4d
+ README a5b81fc497558ff830ab89b3507aafb1e78bc8d1
+ README.md 0f67aa1bcd61112036f10dad9e21425a5944d89f
  TODO 68f0e29dcbf62b5ad99c98e0a17be879c77e0b61
  bkp2U d8e6cfe6369218513971a3f878b578681f904523
- checkCoverage 6883bb30bf79ddd382fe9ebcef2966d9db68c4db
- countem 1a70c59b4788ee398e1d8b24cd0411470e174022
+ checkCoverage fb968bad1f91bfcc7aa712ac59236328d2b3f305
+ countem 3dc86e07a5c279cec6522ab52594159499a44219
  crypto.jdd 699c6f6b8ed4efcb663f0cf4a0178dd259e4ba78
- doPyLint b28672a1fefb80fcb92020198af78325380ff058
+ doPyLint 021aa436dee4e77506d0a628d5e7ff157d115709
  ghpDoc
   css
    LICENSE.html5-boilerplate.md ded771b3245b190da0e81c76de5a80d41392c0a6
@@ -48,30 +52,30 @@ pzog
    simple-cluster.jpg 6b223ddd25937c1ef75ef328f36fc3436f10bd62
    xl-registration.jpg 15cbf951f9db173a45428b32dcec87aca83bbdf0
    xlattice-2014.jpg f185aaad06db71acd9454f31054c62c56d36f37f
-  index.md facad68666287f6e42a66cb2ca38e4ba96303b47
+  index.md 0ded287d7a8afb0fa960a48ced06fb59ae437fcf
  installit 1e9a9526c7ca00e6085d46311dd308378ffc2342
- logs
-  access.log becb1d87b6014651a719445ed6e6a40ba43cfebc
-  error.log f027af414029623546e5efa5552f2e9aded1bc9a
  name-pairs-local d696b9af2ab74497f5f502258970cd63607dc848
- openssl2k.pem d002cf0d15dde3bb0387f201d36ee0d9b8389035
- openssl4k.pem 6f8e9af343875a978df27cc25dcf1f637ec8626e
- psprog 475948dbc08f2f28bfbbb0f8368f69ad9c0ec11e
  pylintrc dd234fda24a547a9071f1e4608a3c1f3b7de9aa0
- pzog
-  __init__.py 8d172aa1b9ce7578604382b0b9cdda812b165842
- pzogd ca491d583c8c6dc553309d0638e45ab663405af4
  renameLocal 6bfd7e171a5f862450c500ef8fae95670ec83137
  renamePerAPI 07bee3b63adee924c0cae9893646cb927803a909
- ringData.xlgo a6e0fb16eb6fa0ba3600dffa7a372b52f6bdf926
- ringDataGen df206da1278840787a26f4b850a3816297bb7106
- ring_data.xlgo a6e0fb16eb6fa0ba3600dffa7a372b52f6bdf926
- ring_data_gen de16def04e6e99b0350c16f4ab9f5e3b316684fa
- setup.py 78f9efe8e8624edcedca2e4097b8b8a6ce891191
- styleit cb4b8aa871130f86b3a68f3af25bf4902a07d052
- test.all 982856314cdb358318f10e008a693db43a461697
- test_node.py 46eab2a1c4aa1971bc85a95c13427720a82ef1b6
- test_u.py 402d06e716888b8bad218de1fc5e020c81b507af
+ setup.py feb9cea567839f0841381053fa51e3edab90129d
+ src
+  psprog 99e1a3954d10591ccaeea9ea72039bf0432009f9
+  pzog
+   __init__.py 847b347a5869d0432102fa34aa0c538a2a0d7a6e
+  pzogd 62d2488b42f3b162c45414768d1917c1a60b5c85
+  ring_data_gen de16def04e6e99b0350c16f4ab9f5e3b316684fa
+ styleit 4355208e4207a47a2d28cd5179c24db0241cadb0
+ test.all df1c79ebc248e15b6d0b9542fcb70df9cb040234
+ tests
+  logs
+   access.log becb1d87b6014651a719445ed6e6a40ba43cfebc
+   error.log f027af414029623546e5efa5552f2e9aded1bc9a
+  openssl2k.pem d002cf0d15dde3bb0387f201d36ee0d9b8389035
+  openssl4k.pem 6f8e9af343875a978df27cc25dcf1f637ec8626e
+  ring_data.xlgo a6e0fb16eb6fa0ba3600dffa7a372b52f6bdf926
+  test_node.py 4af8e3af517c199e22d1cb282470f0bbaf2af27f
+  test_u.py d99318c4526dfe3da4ced5082cf755449be26247
 # END CONTENT #
 
-ll2qDylKJP5PE1uMny2ro17qEUcNjl7GX34xvkAxJxgjTvtcPC91y7PMxr6eMtTaF/M8b8wnSWsjz/Zcp7Bc2nlJS2c2L0360eGAquXJig0P+Qao/H3TnkBOExtin17G2D3shxVjzVtCTtklz6s823FBkD3lnFZYWL20qR9Eeq121gwx8EGpVNtcDY3ZM9wqhPbeZFYOz5KGS4oOJImXzkUJ9JSiYH29f9MzxcG0QdCwzwN0yIjeeGJrX1Va+Q8SBlxrNzupwwIF6TreOQgb3Lr7N4Mq4ywAIYNTQl7/KpNStfdB5jiDrn8Bfr8eU07IGGMPP9vWAmmMlfbRy2qA9g==
+gsC+LyBI6sEOStdtNiijWm79R93R/pWkEWqzWNYSGdmrMRWqGK7PqgvkxB528EGCIsEiVp2CWZB7yG124LW0s4dAOitFNUQz6Qzp1wbXjlyz1hPs8RDVHYfIxozmRncSDi9I40csnsBpe3gYVx6oCCfUEUR4Gyegj1+XGNGeq+BaWSGJqz5NOg2wM1bCXtd/boqDiqYrKFp3+JpSJea0aIFGPeInb3NjHM/KzklyVMh64sx9gvrNXgEnF/TyuoMQaGv6LIfqVDHiRZuGyYzxYTqiX5wwMk0SI5msL39XfsMW87G2Ew9rB3LORInuiapryksbZSiYIgifRQBDb9eD8A==
