@@ -36,9 +36,9 @@ with addresses in
 
 * **MV**, 192.168.152.242
 * **PA**, 192.168.152.252
-* **G**,  192.168.152.254
+*  **G**, 192.168.152.254
 * **LA**, 192.168.152.253
-* **S**,  192.168.152.11
+* **S**, 192.168.152.11
 
 ### Daemons
 
@@ -70,27 +70,26 @@ messages are standard Python strings preceded by a single digit, the
 **wrapping*** byte.
 
 The wrapping byte will be one of `0`, `1`, or `2`.  That is, it will be
-a single ASCII character, a digit.
+a single ASCII character.
 
 Content will be quasi-random with lengths (`-i/--interval`) in the range
-`[32..63]` inclusive, ***not*** counting the *wrapping* byte.  Content will
+[32..63] inclusive, ***not*** counting the 'wrapping' byte.  Content will
 consist of printing characters.  [Content length should be adjusted as
 necessary to keep log lines within 80 characters.]
 
 ### Message Handling
 
 On receiving a message other than a keep-alive from a client, a server will
-forward it to its '+1' and `+2` peers with '1' and `2` **wrappings**
-respectively.
+forward it to its '+1' and `+2` peers with '+1' and `+2` **wrappings** respectively.
 
 #### Daemon-Daemon Messages
 
 On receiving a message from a peer, a server will examine its envelope.
 All messages will be logged AFTER any forwarding.
 
-If the wrapping is `0` (the digit zero), the message will just be logged.  If the wrapping
-is '1', the message will be forwarded to the peer's `+3` server with a zero
-wrapping.  If the wrapping is `2`, the message will be forwarded to the
+If the wrapping is zero, the message will just be logged.  If the wrapping
+is '+1', the message will be forwarded to the peer's `+3` server with a zero
+wrapping.  If the wrapping is `+2`, the message will be forwarded to the
 `+4` server with a zero wrapping.
 
 #### Client-Daemon Messages
@@ -99,9 +98,9 @@ On receiving a message from a client which is other than a keep-alive
 a server will forward it to its '+1' and `+2` peers with a `+2` wrapping
 in each case.
 
-If the wrapping is `0` (zero), the message will just be logged.
+If the wrapping is zero, the message will just be logged.
 
-If the wrapping is `1`, the message will be forwarded to the receiver's
+If the wrapping is '1', the message will be forwarded to the receiver's
 '+1' peer with a zero wrapping.  [We will not use this wrapping in the
 current configuration.]
 

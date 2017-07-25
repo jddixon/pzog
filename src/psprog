@@ -1,23 +1,84 @@
 #!/usr/bin/python3
-# ~/dev/py/pzog/pzogd
+
+# ~/dev/py/pzog/psprog
+
+# This is the python client to zogd, of which the python implementation
+# is pzogd
 
 import os
 import sys
 import time
 import socket
-import traceback
 from argparse import ArgumentParser
 
-from xlattice.procLock import ProcLock
-from xlattice.ftLog import LogMgr
 from optionz import dump_options
-from pzog import __version__, __version_date__, PZOG_MAX_MSG, PZOG_PORT
+import rnglib
+from pzog import __version__, __version_date__, PZOG_PORT, PZOG_MAX_MSG
 
 
 # PATs AND REs ######################################################
 
+def fmt_for_log(msg):
+    now = time.localtime()
+    date = time.strftime('%Y-%m-%d', now)
+    hours = time.strftime('%H:%M:%S', now)
+    return '%s %s %s' % (date, hours, msg)
+
+
+def send_msg(skt, text):
+    skt.sendall(text)
+    reply = skt.recv(1024)
+    # the reply should always be 'ok' XXX
+    print("DEBUG: send_msg gets reply '%s'" % str(reply))
+
+
 def do_whatever(args):
+    rng = rnglib.SimpleRNG(time.time())
+    delta_t = args.interval * 1.0       # in seconds
+    message = args.message
+    msg_count = args.msg_count
     verbose = args.verbose
+
+    path_to_log = os.path.join(args.log_dir, 'sprog.log')
+    log = None
+    skt = None
+    try:
+        if os.path.exists(path_to_log):
+            log = open(path_to_log, 'a')
+        else:
+            log = open(path_to_log, 'w')
+        log.write(fmt_for_log('start sprog run') + '\n')
+
+        skt = None
+        (cnx, addr) = (None, None)
+        skt = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        skt.connect((args.server, args.port))
+        nnn = msg_count
+        while nnn != 0:           # loops forever if n < 0
+            if message:
+                text = fmt_for_log(message)
+            else:
+                text = fmt_for_log(rng.nextFileName(16))
+
+            send_msg(skt, text)
+            print(text)      # HACK
+            log.write(fmt_for_log(text) + '\n')
+
+            time.sleep(delta_t)
+            nnn -= 1
+        send_msg(skt, 'quit')
+        log.write(fmt_for_log('end sprog run') + '\n')
+
+    finally:
+        if log:
+            log.close()
+        if skt:
+            skt.close()
+
+    # DEBUGGING
+    print("leaving early ;-)")
+    sys.exit(0)
+    # END
 
     skt = None
     (cnx, addr) = (None, None)
@@ -27,30 +88,20 @@ def do_whatever(args):
     try:
         running = True
         while running:
-            print("WAITING FOR CONNECTION")              # DEBUG
             cnx, addr = skt.accept()
             try:
                 accept_msg = "CONNECTION FROM %s" % str(addr)
+                args.accessLog.log(accept_msg)
                 if verbose:
                     print(accept_msg)
-                print("BRANCH TO args.access_log.log()")
-                sys.stdout.flush()
-                args.access_log.log(accept_msg)
-                print("BACK FROM args.access.log()")
-                sys.stdout.flush()
 
                 while True:
-                    print("BRANCH TO cnx.recv")
-                    sys.stdout.flush()
                     data = cnx.recv(PZOG_MAX_MSG)
-                    # DEBUG
-                    print("RECEIVED: %s" % data)         # DEBUG
-                    # END
                     if not data:
                         break
                     if data.endswith('\r\n'):
                         cnx.sendall('ok\r\n')
-                        args.access_log.log(data[:-2])
+                        args.accessLog.log(data[:-2])
                         if data == 'quit\r\n':
                             break
                         if data == 'shutdown\r\n':
@@ -78,35 +129,37 @@ def do_whatever(args):
 
 def main():
 
-    pgm_name_and_version = "pzogd v%s %s" % (__version__, __version_date__)
+    pgm_name_and_version = "psprog v%s %s" % (__version__, __version_date__)
     timestamp = "%04d%02d%02d-%02d%02d%02d" % time.gmtime()[:6]
 
     # -- program defaults -------------------------------------------
-
-    with open('/etc/hostname', 'r') as file:
-        this_host = file.read().strip()
-    # DEBUG
-    print("thisHost is '%s'" % this_host)
-    # END
 
     # -- check for config file --------------------------------------
 
     # -- parse the command line -------------------------------------
     # see docs.python.org/library/argparse.html
-    parser = ArgumentParser()
+    parser = ArgumentParser('post new files in a directory into Upax')
 
     parser.add_argument('-e', '--ec2Host', action='store_true',
                         help='set if machine is in EC2')
 
+    parser.add_argument('-i', '--interval', type=int, default=1,
+                        help='interval between sends, defaults to 1')
     parser.add_argument('-j', '--just_show', action='store_true',
                         help='show args and exit')
+    parser.add_argument('-m', '--message', type=str,
+                        help='fixed message text (default = random text)')
+    parser.add_argument('-n', '--msg_count', type=int, default=-1,
+                        help='number of messags to send (infinity by default)')
     parser.add_argument('-p', '--port', type=int, default=PZOG_PORT,
-                        help='port to listen on')
+                        help='daemon port to connect to')
+    parser.add_argument('-s', '--server', type=str, default='127.0.0.1',
+                        help='server to connect to, defaulting to 127.0.0.1')
     parser.add_argument('-t', '--show_timestamp', action='store_true',
                         help='show run timestamp')
 
     parser.add_argument('-T', '--testing', action='store_true',
-                        help='test run - write to ./testU')
+                        help='test run ')
 
     parser.add_argument('-V', '--show_version', action='store_true',
                         help='show version number and date')
@@ -117,10 +170,15 @@ def main():
     args = parser.parse_args()      # a Namespace object
 
     # -- fixups -----------------------------------------------------
+    if args.msg_count < 0:
+        args.msg_count = -1
     args.pgm_name_and_version = pgm_name_and_version
     args.timestamp = timestamp
 
     # -- sanity checks ----------------------------------------------
+    if args.interval <= 0:
+        print("interval (in seconds) must be a positive number")
+        sys.exit(1)
     if args.port <= 0 or args.port >= 65536:
         print("port '%d' is out of range" % args.port)
         sys.exit(1)
@@ -133,7 +191,6 @@ def main():
 
     # fixups --------------------------------------------------------
     args.pgm_name_and_version = pgm_name_and_version
-    args.this_host = this_host
 
     # -- do it ------------------------------------------------------
     if args.verbose or args.show_version or args.just_show:
@@ -144,42 +201,10 @@ def main():
         print()                               # there's a comma up there
 
     if args.just_show or args.verbose:
-        dump_options(args)
-
+        print(dump_options(args))
     if not args.just_show:
-        lock_mgr = None
-        access_log = None
-        error_log = None
-        try:
-            lock_mgr = ProcLock('pzogd')
-            log_mgr = LogMgr(args.log_dir)
-            access_log = log_mgr.open('access')
-            args.access_log = access_log
-#           # DEBUG -------------------------------------------------
-#           print "ACCESS LOG IS %s" % access_log.logFileName
-#           # write to the log file causes core dump XXXXX
-#           access_log.log("opened access log")
-#           # END ---------------------------------------------------
-            error_log = log_mgr.open('error')
-            args.error_log = error_log
-            # DEBUG -------------------------------------------------
-            # pylint can't find the ActualLog property log_file
-            # pylint:disable=no-member
-            print("ERROR LOG IS %s" % error_log.log_file)
-            # write to the log file causes core dump XXXXX
-            error_log.log("opened error log")
-            # END ---------------------------------------------------
-            do_whatever(args)
-        except:
-            traceback.print_exc()
-            sys.exit(1)
-        finally:
-            # XXX better: put each of these in a try block, swallowing
-            #   exceptions
-            if log_mgr:
-                log_mgr.close()
-            if lock_mgr:
-                lock_mgr.unlock()
+        do_whatever(args)
+
 
 if __name__ == '__main__':
     main()

@@ -1,13 +1,10 @@
 # see http://docs.python.org/distutils/sourcedist.html
 
-include netDistrib.conf
-include CHANGES README* TODO MANIFEST.in
-include auto8it countem installit tests.all
-include psprog pzogd test*.py
-include ringData.xlgo
-recursive-include pzog *.py
-
+include CHANGES LICENSE* MANIFEST.in README* TODO
+include bkp2U checkCoverage countem doPyLint installit pylintrc styleit test.all
+include setup.py
+recursive-include src *
+recursive-include tests *
+recursive-include ghpDoc *
 global-exclude junk* .*swp 
 prune   .svn
-
-
