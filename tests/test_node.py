@@ -71,7 +71,7 @@ class TestNode(unittest.TestCase):
     def do_test_generated_rsa_key(self, hashtype):
         """ Run tests on a generated Node for a specific hashtype. """
 
-        node = Node(hashtype)          # no RSA key provided, so creates one
+        node = Node(hashtype=hashtype)  # no RSA key provided, so creates one
         self.check_node(node, hashtype)
 
     def test_generated_rsa_key(self):
@@ -87,12 +87,13 @@ class TestNode(unittest.TestCase):
 
         # import an openSSL-generated 2048-bit key (this becomes a
         # string constant in this program)
-        with open('openssl2k.pem', 'r') as file:
+        with open('tests/openssl2k.pem', 'r') as file:
             pem_key = file.read()
         key = rsa.importKey(pem_key)
         assert key is not None
         self.assertTrue(key.has_private())
-        node = Node(hashtype, key)
+        # XXX Need ck_priv
+        node = Node(hashtype=hashtype, sk_priv=key)
         self.check_node(node, hashtype)
 
         # The _RSAobj.publickey() returns a raw key.

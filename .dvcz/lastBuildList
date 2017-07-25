@@ -7,8 +7,8 @@ Giaje1YAJPNVBt3dlOA5lhBp4GpSYBskJ9UR2Zyt3lgAGK3dEwxYETLMh9VWEV8i
 k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
 /QIDAQAB
 -----END PUBLIC KEY-----
-pzog v0.6.6
-2017-06-20 19:40:48
+pzog v0.6.7
+2017-07-25 21:48:21
 # BEGIN CONTENT #
 pzog
  .cache
@@ -16,26 +16,26 @@ pzog
    cache
     lastfailed 36e10b6355e1aa37c4d23b1c0c782c494da897dd
  .dvcz
-  builds ab4736235d74e8e1d51cbcd61b0e2edecccdc7b5
+  builds dfceb311cd2b8533914dfcc4a6653f430278a36a
   copyright 081f1eacc7bee6ce9cf06ffc957c1472faf9c994
-  lastBuildList b9da9008d012f0a592c83ccc207bbe73d5c304be
+  lastBuildList bd182e3041f9234ada803e985db9175a8ebfd65f
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
-  projCfg 07b1cea5c718f49eab48bf6b6937873be086cbe9
+  projCfg 8323c891f0ffbbab6637ed9d45d616e39c9be5f9
   projCfg.local 9730c32843520d2d486cf6b6940a6c905608112d
-  version 44d1ca29cf2a938ec1adb270a35380cf8f6b8490
+  version 1a5d7d5b5347f9bd19cef59ca5e23e41f620aed2
  .gitignore e3b7cee5122fd863966c063f273fd9a1c25c9e5a
  .gitignore.local f882197ec330edd8519e7f620df4e7e9588c2b6c
- CHANGES 04a03fa2b83c772a67935e977238986a8e8f2a94
- LICENSE-MIT.md 7ff8ae89c5e4489f22b3a360a03225241877bc8d
- MANIFEST.in 60c1295aaebc894cd93d0a521c931c79569a4667
+ CHANGES 2878a0c51d9032487fa42889e1eaeb6101e92cc0
+ LICENSE-MIT.md ce4053c54849d1033bd67b6cab7bdedc03de2b97
+ MANIFEST.in e21823fc3f88da4455792148de0afafb88c08ec5
  README a5b81fc497558ff830ab89b3507aafb1e78bc8d1
  README.md 0f67aa1bcd61112036f10dad9e21425a5944d89f
  TODO 68f0e29dcbf62b5ad99c98e0a17be879c77e0b61
  bkp2U d8e6cfe6369218513971a3f878b578681f904523
- checkCoverage fb968bad1f91bfcc7aa712ac59236328d2b3f305
- countem 3dc86e07a5c279cec6522ab52594159499a44219
+ checkCoverage 1a941c7ab1c3dabebb392498a189ce3e3cc4b90c
+ countem 8f489ee918c2a9d0131fba99ea3c3e6f6109ace4
  crypto.jdd 699c6f6b8ed4efcb663f0cf4a0178dd259e4ba78
- doPyLint 021aa436dee4e77506d0a628d5e7ff157d115709
+ doPyLint 31321ad99eb3b9ac0928a68c29a8b5b88c9472fb
  ghpDoc
   css
    LICENSE.html5-boilerplate.md ded771b3245b190da0e81c76de5a80d41392c0a6
@@ -54,19 +54,16 @@ pzog
    xlattice-2014.jpg f185aaad06db71acd9454f31054c62c56d36f37f
   index.md 0ded287d7a8afb0fa960a48ced06fb59ae437fcf
  installit 1e9a9526c7ca00e6085d46311dd308378ffc2342
- name-pairs-local d696b9af2ab74497f5f502258970cd63607dc848
  pylintrc dd234fda24a547a9071f1e4608a3c1f3b7de9aa0
- renameLocal 6bfd7e171a5f862450c500ef8fae95670ec83137
- renamePerAPI 07bee3b63adee924c0cae9893646cb927803a909
  setup.py feb9cea567839f0841381053fa51e3edab90129d
  src
   psprog 99e1a3954d10591ccaeea9ea72039bf0432009f9
   pzog
-   __init__.py 847b347a5869d0432102fa34aa0c538a2a0d7a6e
+   __init__.py ee2b67b00d6862f60fc0ad57c5829a27efb857a5
   pzogd 62d2488b42f3b162c45414768d1917c1a60b5c85
   ring_data_gen de16def04e6e99b0350c16f4ab9f5e3b316684fa
- styleit 4355208e4207a47a2d28cd5179c24db0241cadb0
- test.all df1c79ebc248e15b6d0b9542fcb70df9cb040234
+ styleit 53a0104fb8fa8e3b7dd7de64b7bc9206b5a9f03c
+ test.all fcc6f8901e351890c95d4786e0930c76e745dbe9
  tests
   logs
    access.log becb1d87b6014651a719445ed6e6a40ba43cfebc
@@ -74,8 +71,8 @@ pzog
   openssl2k.pem d002cf0d15dde3bb0387f201d36ee0d9b8389035
   openssl4k.pem 6f8e9af343875a978df27cc25dcf1f637ec8626e
   ring_data.xlgo a6e0fb16eb6fa0ba3600dffa7a372b52f6bdf926
-  test_node.py 4af8e3af517c199e22d1cb282470f0bbaf2af27f
+  test_node.py 0ba67d6006ad497030d61a497198d768d2c88f66
   test_u.py d99318c4526dfe3da4ced5082cf755449be26247
 # END CONTENT #
 
-gsC+LyBI6sEOStdtNiijWm79R93R/pWkEWqzWNYSGdmrMRWqGK7PqgvkxB528EGCIsEiVp2CWZB7yG124LW0s4dAOitFNUQz6Qzp1wbXjlyz1hPs8RDVHYfIxozmRncSDi9I40csnsBpe3gYVx6oCCfUEUR4Gyegj1+XGNGeq+BaWSGJqz5NOg2wM1bCXtd/boqDiqYrKFp3+JpSJea0aIFGPeInb3NjHM/KzklyVMh64sx9gvrNXgEnF/TyuoMQaGv6LIfqVDHiRZuGyYzxYTqiX5wwMk0SI5msL39XfsMW87G2Ew9rB3LORInuiapryksbZSiYIgifRQBDb9eD8A==
+kTnyq1r6R/2i+cR4wouV6Q8cKPasMLYag3ss/n0V/XcnTIhUHmUe5G+g5YoA/Mg3bF/PGZrtn9sgggQ7QY/7U7JR6EfoeEP6bkt8mQpLTJa7mz+kWkjLwBrIDzKNx2td87eOg1wix0s3iQfjzy6xt2p4SYGwq58PmDaavAuseB9HBtBSYjzyTyo03FGhuaZnvkbK6ZiXlFXphCnnzEa4l+yHPm4YkHBJ7hPsjVc1izz1cetQvL8CC3KqaSG4mYc86/euqtVWOgfQuqU6TXJw4Tj6V7cKgzqj9hp6SYt9CgSU1ACRDsx0M3yB5fvyaQmOwbqGM3MFKU/XNCi83KVXjg==
