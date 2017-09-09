@@ -1,9 +1,9 @@
 :?0.0.1?:
 project:pzog
-package:pzog
+package:src/pzog
 mainlang:py
-version:0.6.6
-versionDate:2017-06-20
+version:0.6.7
+versionDate:2017-07-25
 :?dirs?:
 dir:std:ghpDoc
 dir:std:dist
@@ -11,7 +11,6 @@ dir:std:src
 dir:std:tests
 dir:std:.dvcz
 dir:pkg:pzog
-dir:local:.cache
 dir:clr:build
 dir:extern:limbo
 :?files?:
@@ -29,6 +28,9 @@ code:std:pylintrc
 code:std:.coveragerc
 code:std:check.summary
 code:std:MANIFEST.in
+code:std:tox.ini
+code:std:requirements.txt
+code:std:test_requirements.txt
 code:local:ring_data.xlgo
 txt:std:LICENSE-MIT.md
 txt:std:CHANGES
@@ -42,6 +44,7 @@ bash:std:styleit
 bash:std:test.all
 bash:std:doPyLint
 bash:std:checkCoverage
+py:std:setup.cfg
 py:std:setup.py
 py:global:ring_data_gen
 py:global:psprog

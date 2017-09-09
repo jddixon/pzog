@@ -7,33 +7,33 @@ Giaje1YAJPNVBt3dlOA5lhBp4GpSYBskJ9UR2Zyt3lgAGK3dEwxYETLMh9VWEV8i
 k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
 /QIDAQAB
 -----END PUBLIC KEY-----
-pzog v0.6.7
-2017-07-25 21:48:21
+pzog v0.6.8
+2017-09-09 23:04:33
 # BEGIN CONTENT #
 pzog
  .cache
   v
    cache
-    lastfailed 36e10b6355e1aa37c4d23b1c0c782c494da897dd
+    lastfailed 9ac90d3229b621c0119b87c73dceff9199f5a2f3
  .dvcz
-  builds dfceb311cd2b8533914dfcc4a6653f430278a36a
+  builds 3b6a452cecc915d17cf94f6d89fedee4ad614bb5
   copyright 081f1eacc7bee6ce9cf06ffc957c1472faf9c994
-  lastBuildList bd182e3041f9234ada803e985db9175a8ebfd65f
+  lastBuildList 00809ef3427488446f5dd544986e23f35dcb3884
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
-  projCfg 8323c891f0ffbbab6637ed9d45d616e39c9be5f9
+  projCfg e36cda1f90f4b74870b6e285450ad3777af7569c
   projCfg.local 9730c32843520d2d486cf6b6940a6c905608112d
-  version 1a5d7d5b5347f9bd19cef59ca5e23e41f620aed2
- .gitignore e3b7cee5122fd863966c063f273fd9a1c25c9e5a
+  version 908bcb8000fbc4ccf10d4ad64524a977931e97a0
+ .gitignore 70710f9f479e2c276e05ccbf78e528cf85a690fe
  .gitignore.local f882197ec330edd8519e7f620df4e7e9588c2b6c
- CHANGES 2878a0c51d9032487fa42889e1eaeb6101e92cc0
+ CHANGES 8ff0057b5c79251ae7758cbc4a9efbd76971382f
  LICENSE-MIT.md ce4053c54849d1033bd67b6cab7bdedc03de2b97
- MANIFEST.in e21823fc3f88da4455792148de0afafb88c08ec5
+ MANIFEST.in ee87ecf6928c0c4c69376734eba9cf532ce748b1
  README a5b81fc497558ff830ab89b3507aafb1e78bc8d1
  README.md 0f67aa1bcd61112036f10dad9e21425a5944d89f
  TODO 68f0e29dcbf62b5ad99c98e0a17be879c77e0b61
  bkp2U d8e6cfe6369218513971a3f878b578681f904523
  checkCoverage 1a941c7ab1c3dabebb392498a189ce3e3cc4b90c
- countem 8f489ee918c2a9d0131fba99ea3c3e6f6109ace4
+ countem 5a0c5f154ba134027452d527d25d915d4be4c022
  crypto.jdd 699c6f6b8ed4efcb663f0cf4a0178dd259e4ba78
  doPyLint 31321ad99eb3b9ac0928a68c29a8b5b88c9472fb
  ghpDoc
@@ -55,15 +55,17 @@ pzog
   index.md 0ded287d7a8afb0fa960a48ced06fb59ae437fcf
  installit 1e9a9526c7ca00e6085d46311dd308378ffc2342
  pylintrc dd234fda24a547a9071f1e4608a3c1f3b7de9aa0
- setup.py feb9cea567839f0841381053fa51e3edab90129d
+ requirements.txt 2df449ef7f185f96dc8f1f9ee8a378e8d1cfeeff
+ setup.py 49bcb9aed8d8c0f4af2b073ab64281d55b5ffb22
  src
   psprog 99e1a3954d10591ccaeea9ea72039bf0432009f9
   pzog
-   __init__.py ee2b67b00d6862f60fc0ad57c5829a27efb857a5
+   __init__.py 2fb887753a6d9617927d7efe86f777105065a1d4
   pzogd 62d2488b42f3b162c45414768d1917c1a60b5c85
   ring_data_gen de16def04e6e99b0350c16f4ab9f5e3b316684fa
  styleit 53a0104fb8fa8e3b7dd7de64b7bc9206b5a9f03c
  test.all fcc6f8901e351890c95d4786e0930c76e745dbe9
+ test_requirements.txt 58aaca11e95782457308944ee03d5476531dbaeb
  tests
   logs
    access.log becb1d87b6014651a719445ed6e6a40ba43cfebc
@@ -71,8 +73,9 @@ pzog
   openssl2k.pem d002cf0d15dde3bb0387f201d36ee0d9b8389035
   openssl4k.pem 6f8e9af343875a978df27cc25dcf1f637ec8626e
   ring_data.xlgo a6e0fb16eb6fa0ba3600dffa7a372b52f6bdf926
-  test_node.py 0ba67d6006ad497030d61a497198d768d2c88f66
+  test_node.py 5606b538f61fb017d32064461574c9969c56030c
   test_u.py d99318c4526dfe3da4ced5082cf755449be26247
+ tox.ini 0adef6d196f584fe9c23c078bb6912ccae6790f6
 # END CONTENT #
 
-kTnyq1r6R/2i+cR4wouV6Q8cKPasMLYag3ss/n0V/XcnTIhUHmUe5G+g5YoA/Mg3bF/PGZrtn9sgggQ7QY/7U7JR6EfoeEP6bkt8mQpLTJa7mz+kWkjLwBrIDzKNx2td87eOg1wix0s3iQfjzy6xt2p4SYGwq58PmDaavAuseB9HBtBSYjzyTyo03FGhuaZnvkbK6ZiXlFXphCnnzEa4l+yHPm4YkHBJ7hPsjVc1izz1cetQvL8CC3KqaSG4mYc86/euqtVWOgfQuqU6TXJw4Tj6V7cKgzqj9hp6SYt9CgSU1ACRDsx0M3yB5fvyaQmOwbqGM3MFKU/XNCi83KVXjg==
+C/C0LscFOjdP2yEBzpcAXfa6rJA5IW8UcwmWILtAeBL6/IvNNBD4A4e06PzVaTqjIIlMAOOpdaX3DvQYlZ3zjmYIbHtL36j87XPVc5+ScX/GLc5yspgnF9Dr4gl/726c25SrC9aaF1T6hSKDc/NJZzM2s9gc4Jpbxl1vVCe6xPqV9FA2KAf0e+UBlAFSYKeXIflEqEMMd96xCNvArpWb+OPvBM8ajufh47N8viKniBjJ2Pv6Mh2EAf2TuIki+d5hIPYShhf40d3BmdxBFaJ954CzhsFgNENezfNIOSFJEZBARlP9y1M4wR7CN5u2pRP2559CTplIprg9YBl3gOmiiA==
