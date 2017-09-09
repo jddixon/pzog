@@ -6,7 +6,7 @@ then
   
   rm -rf build/* 
   
-  pySloc -L py  -X cover -X htmlcov -X dist -X limbo -v $@ src/pzog src/psprog src/pzogd src/ring_data_gen tests/test_node.py tests/test_u.py setup.py
+  pySloc -L py  -X cover -X htmlcov -X dist -X limbo -v $@ src/src/pzog src/psprog src/pzogd src/ring_data_gen tox.ini requirements.txt test_requirements.txt tests/test_node.py tests/test_u.py setup.py
 else
   echo "DEV_BASE is not defined"
 fi

@@ -1,7 +1,7 @@
 # ~/dev/py/pzog/pzog/__init__.py
 
-__version__ = '0.6.7'
-__version_date__ = '2017-07-25'
+__version__ = '0.6.8'
+__version_date__ = '2017-09-09'
 
 __all__ = ['__version__', '__version_date__',
            'PZOG_MAX_MSG', 'PZOG_PORT', 'RING_IP_ADDR',
