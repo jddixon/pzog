@@ -1,4 +1,4 @@
-# Crypto Implementation Nodes
+# Crypto Implementation Notes
 
 ## Private Key Generation
 
@@ -16,7 +16,7 @@ Per sp800-78-3.pdf, section 3.2.3, the object identifier for SHA-1 is
 
     id-sha1 ::= {iso(1) identified-organization(3) oiw(14) secsig(3) algorithms(2) 26}
 
-**LATER NODE:** This is the ITU's unwieldy way of writing what the IETF calls
+**LATER NOTE:** This is the ITU's unwieldy way of writing what the IETF calls
 1.3.14.3.2.26..  See http://www.alvestrand.no/objectid/ and
 http://www.itu.int/ITU-T/asn1/  The ITU website points you to www.oid-info.com,
 a searchable OID repository.  This contains nothing matching keccak or sha3
@@ -80,7 +80,7 @@ free ipv4 addresses like 10/8.  Private OIDs begin with 1.3.6.1.4.1
 common OIDs seen in the wild, according to Wikipedia's Object_identifier
 article.
 
-**LATER NODE:** the ASN.1 encoding for an SHA1 digest has one oddity.  The
+**LATER NOTE:** the ASN.1 encoding for an SHA1 digest has one oddity.  The
   first two bytes of the OID, 1.3.14.3.2.26, are combined into 40*val1 + val2,
   which is 0x2b (decimal 43).  This gives a byte sequence
 
