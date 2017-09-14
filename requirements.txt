@@ -1,8 +1,2 @@
 # pzog/requirements.txt
-
-# for xlattice_py:
-cryptography
-pycrypt
-pyev
-pysha3
-
+setuptools
