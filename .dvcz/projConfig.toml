@@ -1,0 +1,35 @@
+# projConfig.toml for pzog
+
+[meta]
+    version= '0.1.0'
+
+[project]
+    name = 'pzog'             # external name = distribution name
+    package = 'pzog'          # internal name
+    main_lang = 'py'
+    version = '1.3.6'
+    version_date = '2017-09-23'
+    author = 'Jim Dixon'
+    author_email = 'jdd@gmail.com'
+    copyright = '2012-2017'
+    description='organize ring of 5-6 machines sharing data over full mesh'
+    dev_status = 'pre-alpha'
+    license = 'mit'
+    relpath = 'py/pzog'
+    state = 'shared'
+    url = 'https://jddixon.github.io/pzog'
+
+[python]
+    packages = ['pzog']
+    package_dir = ['src']
+    test_dir = 'tests'
+    py_modules = []
+    scripts=['src/psprog', 'src/pzogd', 'src/ring_data_gen']
+    ext_modules = []
+
+    # sdReq output
+    distshare = ['optionz','rnglib','xlattice_py']]
+    requirements = ['setuptools']
+    test_requirements = ['pycrypt']
+
+    # trove stuff is TBD
