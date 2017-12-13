@@ -58,7 +58,7 @@ def do_whatever(args):
             if message:
                 text = fmt_for_log(message)
             else:
-                text = fmt_for_log(rng.nextFileName(16))
+                text = fmt_for_log(rng.next_file_name(16))
 
             send_msg(skt, text)
             print(text)      # HACK

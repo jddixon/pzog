@@ -3,34 +3,35 @@
 # ~/dev/py/pzog/ringDataGen
 
 import binascii
-import os
+# import os
 import sys
 import time
 from argparse import ArgumentParser
 
-from pzog import *
-from pzog.xlattice import node
+from pzog import __version__, __version_date__, RING_IP_ADDR, PZOG_PORT
+
+from xlattice.pyca_node import Node
 
 # PATs AND REs ######################################################
 
 
-def doWhatever(args):
+def do_whatever(args):
     verbose = args.verbose
 
     nodes = {}
     for pair in RING_IP_ADDR:
-        hostName = pair[0]
-        ipAddr = pair[1]
-        thisNode = node.Node()       # sha3 by default; generates keys
-        nodes[hostName] = thisNode
-        nodeID = thisNode.nodeID
-        hexNodeID = binascii.b2a_hex(nodeID)
+        host_name = pair[0]
+        ip_addr = pair[1]
+        this_node = Node()     # default SHA2, 2048-bit keys
+        node_id = this_node.node_id
+        nodes[host_name] = this_node
+        hex_node_id = binascii.b2a_hex(node_id)
         if verbose:
             print("\nHOST: %-12s %16s" % pair)
-            print("  nodeID %s" % hexNodeID)
-            print("  hexNodeID len is %u" % len(hexNodeID))
-            print("  public key is %s" % thisNode.pubKey.exportKey())
-            print("  private key is %s" % thisNode.key.exportKey())
+            print("  node_id %s" % hex_node_id)
+            print("  hex_node_id len is %u" % len(hex_node_id))
+            print("  public key is %s" % this_node.pubKey.exportKey())
+            print("  private key is %s" % this_node.key.exportKey())
 
 
 def main():
@@ -63,7 +64,7 @@ def main():
     args.timestamp = timestamp
 
     # -- sanity checks ----------------------------------------------
-    if args.port <= 0 or 65536 <= args.port:
+    if args.port <= 0 or args.port >= 65536:
         print("port '%d' is out of range" % args.port)
         sys.exit(1)
 
@@ -81,10 +82,13 @@ def main():
         print('verbose          = ' + str(args.verbose))
 
     if not args.justShow:
-        lockMgr = None
-        accessLog = None
-        errorLog = None
-        doWhatever(args)
+        lock_mgr = None
+        access_log = None
+        error_log = None
+        # WORK IN PROGRESS - currently unused
+        _, _, _ = lock_mgr, access_log, error_log
+        # END WIP
+        do_whatever(args)
 
 
 if __name__ == '__main__':
