@@ -8,8 +8,8 @@ import socket
 import traceback
 from argparse import ArgumentParser
 
-from xlattice.procLock import ProcLock
-from xlattice.ftLog import LogMgr
+from xlattice.proc_lock import ProcLock
+from xlattice.ftlog import LogMgr
 from optionz import dump_options
 from pzog import __version__, __version_date__, PZOG_MAX_MSG, PZOG_PORT
 
