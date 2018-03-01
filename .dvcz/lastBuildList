@@ -8,18 +8,18 @@ k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
 /QIDAQAB
 -----END PUBLIC KEY-----
 pzog
-2017-12-13 22:39:07
+2018-03-01 15:27:44
 # BEGIN CONTENT #
 pzog
  .dvcz
-  builds 2f811eb75d46b3b73974ab5769d520740ce68099
-  lastBuildList b0a6a197331da76e3ab87f72142a1780553eab9c
+  builds 85d36e1c1fdc41e055ec84b605af1e237cbc4a8d
+  lastBuildList 42e0426af9ddbeca276a0b58bce0b95e72bee6e4
   projCfg e36cda1f90f4b74870b6e285450ad3777af7569c
   projCfg.local 9730c32843520d2d486cf6b6940a6c905608112d
-  projConfig.toml 0612214ac16c4d66c08f0ced7b8ef45bf66dce48
+  projConfig.toml acd918635975f12ade497186b053b6321933119a
  .gitignore 70710f9f479e2c276e05ccbf78e528cf85a690fe
  .gitignore.local f882197ec330edd8519e7f620df4e7e9588c2b6c
- CHANGES c949d0b2ab87d3095026f6e55a6f033647284e83
+ CHANGES c5404658055365ed2a5729b8b91e9a4e0865a892
  LICENSE-MIT.md ce4053c54849d1033bd67b6cab7bdedc03de2b97
  MANIFEST.in ee87ecf6928c0c4c69376734eba9cf532ce748b1
  README a5b81fc497558ff830ab89b3507aafb1e78bc8d1
@@ -50,16 +50,16 @@ pzog
  installit 1e9a9526c7ca00e6085d46311dd308378ffc2342
  pylintrc dd234fda24a547a9071f1e4608a3c1f3b7de9aa0
  requirements.txt 34501eac17c175feb2eaacea4afc7dbe892cf78f
- setup.py 89dc340c06f2d6ed2d00c7d9b0868283cefef837
+ setup.py 7b661fd55754847543a3beed8396c925672167e9
  src
   psprog d177a2980265e1ec121d3a6a62dce118170dff90
   pzog
-   __init__.py 8d3026b91c7b3e0426fa6a3a94e7230ed2c7056a
+   __init__.py 746d5f868046dcee787742646f4065ac0cc29ce4
   pzogd 79508a255da64bb4d31b55d512693e9f0521e150
   ring_data_gen 05be960881455642f00a92b524e05507368d9cfd
  styleit 53a0104fb8fa8e3b7dd7de64b7bc9206b5a9f03c
  test.all fcc6f8901e351890c95d4786e0930c76e745dbe9
- test_requirements.txt 8065a0ba47fc564d58e60effa08498d8d8f893a2
+ test_requirements.txt 56b11dab3767ff6fca96d612e0dcf2c242c75cbb
  tests
   logs
    access.log becb1d87b6014651a719445ed6e6a40ba43cfebc
@@ -69,7 +69,7 @@ pzog
   ring_data.xlgo a6e0fb16eb6fa0ba3600dffa7a372b52f6bdf926
   test_node.py 40df243b1ce0f74b5858a067938f23ed484bc032
   test_u.py d99318c4526dfe3da4ced5082cf755449be26247
- tox.ini 28f04bfc846a2645942913925a4aff65645c2e01
+ tox.ini 5a97fc24ea578fff65c7abf519e159f2245d3026
 # END CONTENT #
 
-iZ0HnI65I5Q8bhjsuNK7E+0X0R48hUNbUcpleZmvaYoRHguAenJR7fOR+FgEUg7Q+dZgOsVIM2hv2YOtToqcdGYU7vU3g4CqyLBioEVhRAiegQOuOjrjR1tPmPcvw+ksnfMqxor8kIqz91gt7RkLUv32+k88q989qqqtBtl9+vCOz6s6XhhiiIqWWcVI7TPodcKmE3rLxKyt59dA4xqmBB9am/5P60yeo88L+u/NtM/CrocAMbygtfRZazClqv2gGPXEpLLwp5V+e2WhWcdlSPulWy9kD232bgMcu4CywChWxU2EvKg6aMbefihV2m3Z//6B9ICfnXlQCO/+E77nOw==
+CXS+XvYa30+6Eq1izOwI3/oF51JLgEul/2qaTM37KS7Pu7x428E6RF4AEaU0rJlwBjw6X8E2Dy5H5WaL0Ny1idMCRDw7ibS8CGXxL/mw8hOo81PjnoO0FHss30GQbNwm97kj+kmoTiE1pfSVpT7O+YWqtKxuvt7zkGW3f2PTr9SQGeaJzqaPkrh1NPgfpc878EqY3YoUYPtlJMbL7RQUMq5VcrDZP4XpP1Ac9icVmHfCspvdkqHU0LLdmWsiwSABc1+ARd8aNxvMUBdTrCVloeTWXpRgK+2UQ4ZZesftAY2i86dsivpO0kOWElBQ6fvmDUcVIitXRr40/34Gxry3VQ==
