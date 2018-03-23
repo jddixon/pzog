@@ -5,10 +5,10 @@ version = "0.1.0"
 name = "pzog"
 package = "pzog"
 main_lang = "py"
-version = "0.6.12"
-version_date = "2018-03-01"
+version = "0.6.13"
+version_date = "2018-03-23"
 author = "Jim Dixon"
-author_email = "jdd@gmail.com"
+author_email = "jddixon@gmail.com"
 copyright = "2012-2017"
 description = "organize ring of 5-6 machines sharing data over full mesh"
 dev_status = "pre-alpha"
@@ -17,7 +17,7 @@ relpath = "py/pzog"
 state = "shared"
 url = "https://jddixon.github.io/pzog"
 
-[python]
+[py]
 packages = [ "pzog",]
 package_dir = [ "src",]
 test_dir = "tests"
@@ -25,3 +25,5 @@ py_modules = []
 scripts = [ "src/psprog", "src/pzogd", "src/ring_data_gen",]
 ext_modules = []
 distshare = [ "optionz", "rnglib", "xlattice_py']]     requirements = ['setuptools']     test_requirements = ['pycrypt",]
+requirements = ['setuptools']
+test_requirements=['pycrypt']

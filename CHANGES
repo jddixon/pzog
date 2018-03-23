@@ -1,8 +1,11 @@
 ~/dev/py/pzog/CHANGES
 
+v0.6.13
+    2018-03-23
+        * fix corrupt .dvdz/builds                                  SLOC 1326
 v0.6.12
     2018-03-01
-        * edit setup.py, tox config files                           SLOC 119
+        * edit setup.py, tox config files                           SLOC 1319
 v0.6.11
     2017-12-13
         * pylinting plus bug fixes                                  SLOC 1325
@@ -171,6 +174,7 @@ v0.1
             - bad messages cause the connection to be closed            * ???
         * a keyboard interrupt (ctrl-C) causes pzogd to shut down
             in an orderly fashion
+
 
 
 
